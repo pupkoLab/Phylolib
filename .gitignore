@@ -1,0 +1,6 @@
+*a.out
+*phylolib.a
+build
+*.d
+*.o
+*.vscode

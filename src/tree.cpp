@@ -374,42 +374,65 @@ void tree::getFromNodeToLeaves(vector<nodeP> &vec, const nodeP fromHereDown) con
 
 void tree::getAllHTUs(vector<nodeP> &vec, const nodeP fromHereDown ) const {
 	vec.clear();
-	getAllHTUsPrivate(vec,fromHereDown);
-}
+	if (fromHereDown->isLeaf()) return;
+	vec.push_back(fromHereDown);
 
-
-void tree::getAllHTUsPrivate(vector<nodeP> &vec, const nodeP fromHereDown ) const {
-	if (fromHereDown == NULL) return;
-	if (fromHereDown->isInternal()) vec.push_back(fromHereDown);
-	for (size_t k=0; k < fromHereDown->getNumberOfSons(); k++) {
-		getAllHTUsPrivate(vec,fromHereDown->getSon(k));
+	size_t pos = 0;
+	while (vec[pos] != *vec.end()) {
+		for (size_t k=0; k < vec[pos]->getNumberOfSons(); k++) {
+			if (vec[pos]->getSon(k)->isInternal()) vec.push_back(vec[pos]->getSon(k));
+		}
+		++pos;
 	}
 	return;
+
 }
+
+
+// void tree::getAllHTUsPrivate(vector<nodeP> &vec, const nodeP fromHereDown ) const {
+// 	if (fromHereDown == NULL) return;
+// 	if (fromHereDown->isInternal()) vec.push_back(fromHereDown);
+// 	for (size_t k=0; k < fromHereDown->getNumberOfSons(); k++) {
+// 		getAllHTUsPrivate(vec,fromHereDown->getSon(k));
+// 	}
+// 	return;
+// }
+
+// Iterative version: (no recursion)
+
 
 
 void tree::getAllNodes(vector<nodeP> &vec, const nodeP fromHereDown ) const {
 	vec.clear();
-	getAllNodesPrivate(vec,fromHereDown);
-}
-
-
-void tree::getAllNodesPrivate(vector<nodeP> &vec, const nodeP fromHereDown ) const {
-	//DFS: depth first search
-	if (fromHereDown == NULL) 
-		return;
 	vec.push_back(fromHereDown);
-	for (size_t k=0; k < fromHereDown->getNumberOfSons(); k++) {
-		getAllNodesPrivate(vec,fromHereDown->getSon(k));
+
+	size_t pos = 0;
+	while (vec[pos] != *vec.end()) {
+		for (size_t k=0; k < vec[pos]->getNumberOfSons(); k++) {
+			vec.push_back(vec[pos]->getSon(k));
+		}
+		++pos;
 	}
 	return;
 }
 
 
+
 void tree::getAllLeaves(vector<nodeP> &vec, const nodeP fromHereDown ) const {
 	vec.clear();
-	getAllLeavesPrivate(vec,fromHereDown);
-}
+	if (fromHereDown->isLeaf()) {
+		vec.push_back(fromHereDown);
+		return;
+	}
+
+	size_t pos = 0;
+	while (vec[pos] != *vec.end()) {
+		for (size_t k=0; k < vec[pos]->getNumberOfSons(); k++) {
+			if (vec[pos]->getSon(k)->isLeaf()) vec.push_back(vec[pos]->getSon(k));
+		}
+		++pos;
+	}
+	return;}
 
 
 void tree::getAllLeavesPrivate(vector<nodeP> &vec, const nodeP fromHereDown ) const {
