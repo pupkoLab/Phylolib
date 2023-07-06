@@ -1,7 +1,6 @@
 *a.out
 *phylolib.a
 build
-lib
 *main
 *.d
 *.o
