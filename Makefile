@@ -20,3 +20,5 @@ $(TARGET): $(OBJFILES)
 
 $(OBJDIR)%.o:  $(SRCDIR)%.cpp Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(shell mkdir lib)
