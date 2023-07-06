@@ -1,10 +1,10 @@
 // $Id: likelihoodComputationFactors.cpp 962 2006-11-07 15:13:34Z privmane $
 
 
-#include "definitions.h"
-#include "tree.h"
-#include "computeUpAlg.h"
-#include "likelihoodComputationFactors.h"
+#include "../includes/definitions.h"
+#include "../includes/tree.h"
+#include "../includes/computeUpAlg.h"
+#include "../includes/likelihoodComputationFactors.h"
 #include <cmath>
 #include <cassert>
 

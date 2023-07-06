@@ -1,9 +1,9 @@
 // $Id: clustalFormat.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "clustalFormat.h"
-#include "codon.h"
-#include "someUtil.h"
-#include "errorMsg.h"
+#include "../includes/clustalFormat.h"
+#include "../includes/codon.h"
+#include "../includes/someUtil.h"
+#include "../includes/errorMsg.h"
 #include <map>
 
 sequenceContainer clustalFormat::read(istream &infile, const alphabet* alph) {

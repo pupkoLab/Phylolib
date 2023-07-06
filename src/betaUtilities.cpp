@@ -1,10 +1,10 @@
 // 	$Id: betaUtilities.cpp 962 2006-11-07 15:13:34Z privmane $	
 
-#include "definitions.h"
-#include "betaUtilities.h"
-#include "gammaUtilities.h"
-#include "logFile.h"
-#include "errorMsg.h"
+#include "../includes/definitions.h"
+#include "../includes/betaUtilities.h"
+#include "../includes/gammaUtilities.h"
+#include "../includes/logFile.h"
+#include "../includes/errorMsg.h"
 #include <cmath>
 
 /******************************

@@ -1,9 +1,9 @@
 
-#include "definitions.h"
-#include "tree.h"
-#include "computeUpAlg.h"
-#include "likelihoodComputation.h"
-#include "gammaUtilities.h"
+#include "../includes/definitions.h"
+#include "../includes/tree.h"
+#include "../includes/computeUpAlg.h"
+#include "../includes/likelihoodComputation.h"
+#include "../includes/gammaUtilities.h"
 #include <cmath>
 #include <cassert>
 using namespace likelihoodComputation;

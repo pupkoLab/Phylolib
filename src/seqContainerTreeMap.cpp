@@ -1,7 +1,7 @@
 
-#include "seqContainerTreeMap.h"
-#include "errorMsg.h"
-#include "treeUtil.h"
+#include "../includes/seqContainerTreeMap.h"
+#include "../includes/errorMsg.h"
+#include "../includes/treeUtil.h"
 #include <cstdlib>
 using namespace std;
 

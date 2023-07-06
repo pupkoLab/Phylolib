@@ -1,9 +1,9 @@
 // $Id: gammaDistribution.cpp 2862 2007-11-27 10:59:03Z itaymay $
 
-#include "definitions.h"
-#include "gammaDistribution.h"
-#include "gammaUtilities.h"
-#include "logFile.h"
+#include "../includes/definitions.h"
+#include "../includes/gammaDistribution.h"
+#include "../includes/gammaUtilities.h"
+#include "../includes/logFile.h"
 #include <cmath>
 
 

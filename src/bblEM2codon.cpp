@@ -1,17 +1,17 @@
 // $Id: bblEM2codon.cpp 2350 2007-08-20 10:53:51Z adist $
 
-#include "bblEM2codon.h"
-#include "likelihoodComputation.h"
-#include "likelihoodComputation2Codon.h"
-#include "fromCountTableComponentToDistance2Codon.h"
+#include "../includes/bblEM2codon.h"
+#include "../includes/likelihoodComputation.h"
+#include "../includes/likelihoodComputation2Codon.h"
+#include "../includes/fromCountTableComponentToDistance2Codon.h"
 using namespace likelihoodComputation;
 using namespace likelihoodComputation2Codon;
-#include "computeUpAlg.h"
-#include "computeDownAlg.h"
-#include "computeCounts.h"
-#include "treeIt.h"
-#include "errorMsg.h"
-#include "logFile.h"
+#include "../includes/computeUpAlg.h"
+#include "../includes/computeDownAlg.h"
+#include "../includes/computeCounts.h"
+#include "../includes/treeIt.h"
+#include "../includes/errorMsg.h"
+#include "../includes/logFile.h"
 #include <ctime>
 
 bblEM2codon::bblEM2codon(tree& et,

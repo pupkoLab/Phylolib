@@ -1,48 +1,48 @@
 // 	$Id: geneticCodeHolder.cpp 962 2006-11-07 15:13:34Z privmane $	
 
 
-#include "geneticCodeHolder.h"
+#include "../includes/geneticCodeHolder.h"
 
 const geneticCodeString geneticCodeHolder::nuclearStandard(
-#include "../geneticCodes/nuclearStandard.code"
+#include "../includes/../geneticCodes/nuclearStandard.code"
 );
 
 const geneticCodeString geneticCodeHolder::nuclearEuplotid(
-#include "../geneticCodes/nuclearEuplotid.code"
+#include "../includes/../geneticCodes/nuclearEuplotid.code"
 );
 
 const geneticCodeString geneticCodeHolder::nuclearCiliate(
-#include "../geneticCodes/nuclearCiliate.code"
+#include "../includes/../geneticCodes/nuclearCiliate.code"
 );
 
 const geneticCodeString geneticCodeHolder::nuclearBlepharisma(
-#include "../geneticCodes/nuclearBlepharisma.code"
+#include "../includes/../geneticCodes/nuclearBlepharisma.code"
 );
 
 const geneticCodeString geneticCodeHolder::mitochondriaYeast(
-#include "../geneticCodes/mitochondriaYeast.code"
+#include "../includes/../geneticCodes/mitochondriaYeast.code"
 );
 
 const geneticCodeString geneticCodeHolder::mitochondriaVertebrate(
-#include "../geneticCodes/mitochondriaVertebrate.code"
+#include "../includes/../geneticCodes/mitochondriaVertebrate.code"
 );
 
 const geneticCodeString geneticCodeHolder::mitochondriaProtozoan(
-#include "../geneticCodes/mitochondriaProtozoan.code"
+#include "../includes/../geneticCodes/mitochondriaProtozoan.code"
 );
 
 const geneticCodeString geneticCodeHolder::mitochondriaInvertebrate(
-#include "../geneticCodes/mitochondriaInvertebrate.code"
+#include "../includes/../geneticCodes/mitochondriaInvertebrate.code"
 );
 
 const geneticCodeString geneticCodeHolder::mitochondriaFlatworm(
-#include "../geneticCodes/mitochondriaFlatworm.code"
+#include "../includes/../geneticCodes/mitochondriaFlatworm.code"
 );
 
 const geneticCodeString geneticCodeHolder::mitochondriaEchinoderm(
-#include "../geneticCodes/mitochondriaEchinoderm.code"
+#include "../includes/../geneticCodes/mitochondriaEchinoderm.code"
 );
 
 const geneticCodeString geneticCodeHolder::mitochondriaAscidian(
-#include "../geneticCodes/mitochondriaAscidian.code"
+#include "../includes/../geneticCodes/mitochondriaAscidian.code"
 );

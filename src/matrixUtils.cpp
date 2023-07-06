@@ -1,6 +1,6 @@
 
-#include "matrixUtils.h"
-#include "errorMsg.h"
+#include "../includes/matrixUtils.h"
+#include "../includes/errorMsg.h"
 #include <cmath>
 #include <string>
 #include <ctype.h>

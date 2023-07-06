@@ -1,7 +1,7 @@
 // $Id: fromCountTableComponentToDistanceProp.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "fromCountTableComponentToDistancePropEB.h"
-#include "likeDistPropEB.h"
+#include "../includes/fromCountTableComponentToDistancePropEB.h"
+#include "../includes/likeDistPropEB.h"
 
 fromCountTableComponentToDistancePropEB::fromCountTableComponentToDistancePropEB(
 		const vector< vector<countTableComponentGamProportional> >& ctc,

@@ -1,9 +1,9 @@
 // $Id: treeUtil.cpp 10477 2012-03-18 07:58:05Z itaymay $
 
-#include "definitions.h"
-#include "treeUtil.h"
-#include "treeIt.h"
-#include "someUtil.h"
+#include "../includes/definitions.h"
+#include "../includes/treeUtil.h"
+#include "../includes/treeIt.h"
+#include "../includes/someUtil.h"
 #include <fstream>
 #include <iostream>
 #include <cassert>

@@ -1,16 +1,16 @@
 // $Id: fastStartTree.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "definitions.h"
-#include "tree.h"
-#include "treeUtil.h"
-#include "fastStartTree.h"
-#include "bblEM.h"
-#include "likeDist.h"
-#include "likelihoodComputation.h"
-#include "getRandomWeights.h"
-#include "distanceTable.h"
-#include "nj.h"
-#include "logFile.h"
+#include "../includes/definitions.h"
+#include "../includes/tree.h"
+#include "../includes/treeUtil.h"
+#include "../includes/fastStartTree.h"
+#include "../includes/bblEM.h"
+#include "../includes/likeDist.h"
+#include "../includes/likelihoodComputation.h"
+#include "../includes/getRandomWeights.h"
+#include "../includes/distanceTable.h"
+#include "../includes/nj.h"
+#include "../includes/logFile.h"
 
 #include <algorithm>
 

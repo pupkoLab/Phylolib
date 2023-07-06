@@ -1,15 +1,15 @@
 // $Id: bestGtrModelparams.cpp 2008-29-04 10:57:00Z nimrod $
 
-#include "bestGtrModelParams.h"
+#include "../includes/bestGtrModelParams.h"
 #include <iostream>
 using namespace std;
 
-#include "bblEM.h"
-#include "bblEMProportionalEB.h"
-#include "bblLSProportionalEB.h"
-#include "numRec.h"
-#include "logFile.h"
-#include "bestAlpha.h"
+#include "../includes/bblEM.h"
+#include "../includes/bblEMProportionalEB.h"
+#include "../includes/bblLSProportionalEB.h"
+#include "../includes/numRec.h"
+#include "../includes/logFile.h"
+#include "../includes/bestAlpha.h"
 
 bestGtrModel::bestGtrModel(tree& et, // find best Gtr Model Params
 										const sequenceContainer& sc,

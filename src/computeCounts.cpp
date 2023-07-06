@@ -1,6 +1,6 @@
 // $Id: computeCounts.cpp 9899 2011-10-11 19:56:48Z rubi $
 
-#include "computeCounts.h"
+#include "../includes/computeCounts.h"
 void computeCounts::computeCountsNodeFatherNodeSonHomPos(const sequenceContainer& sc,
 														 const computePijHom& pi,
 														 const stochasticProcess& sp,

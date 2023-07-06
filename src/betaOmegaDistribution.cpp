@@ -1,10 +1,10 @@
 // $Id: betaOmegaDistribution.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "betaOmegaDistribution.h"
-#include "gammaUtilities.h"
-#include "betaUtilities.h"
-#include "errorMsg.h"
-#include "logFile.h"
+#include "../includes/betaOmegaDistribution.h"
+#include "../includes/gammaUtilities.h"
+#include "../includes/betaUtilities.h"
+#include "../includes/errorMsg.h"
+#include "../includes/logFile.h"
 #include <cmath>
 
 

@@ -1,16 +1,16 @@
 // $Id: recognizeFormat.cpp 6780 2009-09-15 00:55:05Z itaymay $
 
 
-#include "recognizeFormat.h"
-#include "maseFormat.h"
-#include "sequenceContainer.h"
-#include "molphyFormat.h"
-#include "phylipFormat.h"
-#include "nexusFormat.h"
-#include "fastaFormat.h"
-#include "clustalFormat.h"
-#include "nexusFormat.h"
-#include "phylipSequentialFormat.h"
+#include "../includes/recognizeFormat.h"
+#include "../includes/maseFormat.h"
+#include "../includes/sequenceContainer.h"
+#include "../includes/molphyFormat.h"
+#include "../includes/phylipFormat.h"
+#include "../includes/nexusFormat.h"
+#include "../includes/fastaFormat.h"
+#include "../includes/clustalFormat.h"
+#include "../includes/nexusFormat.h"
+#include "../includes/phylipSequentialFormat.h"
 
 
 sequenceContainer recognizeFormat::read(istream &infile, const alphabet* alph) {

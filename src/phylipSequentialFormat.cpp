@@ -1,10 +1,10 @@
 // $Id: phylipFormat.cpp 962 2006-11-07 15:13:34Z privmane $
 
 
-#include "phylipSequentialFormat.h"
-#include "someUtil.h"
-#include "errorMsg.h"
-#include "logFile.h"
+#include "../includes/phylipSequentialFormat.h"
+#include "../includes/someUtil.h"
+#include "../includes/errorMsg.h"
+#include "../includes/logFile.h"
 
 sequenceContainer phylipSequentialFormat::read(istream &infile, const alphabet* alph){
 	sequenceContainer mySeqData = readUnAligned(infile, alph);

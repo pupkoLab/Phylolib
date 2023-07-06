@@ -1,12 +1,12 @@
 
-#include "bblEM.h"
-#include "likelihoodComputation.h"
+#include "../includes/bblEM.h"
+#include "../includes/likelihoodComputation.h"
 using namespace likelihoodComputation;
-#include "computeUpAlg.h"
-#include "computeDownAlg.h"
-#include "computeCounts.h"
-#include "treeIt.h"
-#include "fromCountTableComponentToDistance.h"
+#include "../includes/computeUpAlg.h"
+#include "../includes/computeDownAlg.h"
+#include "../includes/computeCounts.h"
+#include "../includes/treeIt.h"
+#include "../includes/fromCountTableComponentToDistance.h"
 //#include <ctime> // use only for debugging.
 
 bblEM::bblEM(tree& et,

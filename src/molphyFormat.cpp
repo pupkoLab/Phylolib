@@ -1,8 +1,8 @@
 // 	$Id: molphyFormat.cpp 962 2006-11-07 15:13:34Z privmane $	
 
-#include "molphyFormat.h"
-#include "someUtil.h"
-#include "errorMsg.h"
+#include "../includes/molphyFormat.h"
+#include "../includes/someUtil.h"
+#include "../includes/errorMsg.h"
 
 sequenceContainer molphyFormat::read(istream &infile, const alphabet* alph) {
 	sequenceContainer mySeqData = readUnAligned(infile, alph);

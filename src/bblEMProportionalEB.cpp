@@ -1,16 +1,16 @@
 // $Id: bblEMProprtional.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "bblEM.h"
-#include "bblEMProportionalEB.h"
-#include "likelihoodComputation.h"
+#include "../includes/bblEM.h"
+#include "../includes/bblEMProportionalEB.h"
+#include "../includes/likelihoodComputation.h"
 using namespace likelihoodComputation;
-#include "computeUpAlg.h"
-#include "computeDownAlg.h"
-#include "computeCounts.h"
-#include "treeIt.h"
-#include "fromCountTableComponentToDistance.h"
+#include "../includes/computeUpAlg.h"
+#include "../includes/computeDownAlg.h"
+#include "../includes/computeCounts.h"
+#include "../includes/treeIt.h"
+#include "../includes/fromCountTableComponentToDistance.h"
 #include <ctime>//#define VERBOS
-#include "fromCountTableComponentToDistancePropEB.h"
+#include "../includes/fromCountTableComponentToDistancePropEB.h"
 
 bblEMProportionalEB::bblEMProportionalEB(tree& et,
 									const vector<sequenceContainer>& sc,

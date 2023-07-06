@@ -1,8 +1,8 @@
 // $Id: likeDistProp.cpp 962 2006-11-07 15:13:34Z privmane $
 
 
-#include "likeDistPropEB.h"
-#include "numRec.h"
+#include "../includes/likeDistPropEB.h"
+#include "../includes/numRec.h"
 
 const MDOUBLE likeDistPropEB::giveDistance(	const vector< vector<countTableComponentGamProportional> >& ctc,const int nodeID,
 								MDOUBLE& resL,const MDOUBLE initialGuess) const {

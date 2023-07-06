@@ -1,8 +1,8 @@
 
 
-#include "gtrModel.h"
-#include "readDatMatrix.h" // for the normalizeQ function.
-#include "matrixUtils.h"
+#include "../includes/gtrModel.h"
+#include "../includes/readDatMatrix.h" // for the normalizeQ function.
+#include "../includes/matrixUtils.h"
 
 gtrModel::gtrModel(const Vdouble& freq,
 				      const MDOUBLE a2c,

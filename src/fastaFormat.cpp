@@ -1,9 +1,9 @@
 // $Id: fastaFormat.cpp 10280 2012-02-06 09:45:26Z itaymay $
 
-#include "fastaFormat.h"
-#include "someUtil.h"
-#include "errorMsg.h"
-#include "ConversionUtils.h"
+#include "../includes/fastaFormat.h"
+#include "../includes/someUtil.h"
+#include "../includes/errorMsg.h"
+#include "../includes/ConversionUtils.h"
 #include <algorithm>
 using namespace std;
 

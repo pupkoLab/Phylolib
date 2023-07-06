@@ -12,9 +12,9 @@
 
 
 #include <cassert>
-#include "readDatMatrix.h"
-#include "errorMsg.h"
-#include "logFile.h"
+#include "../includes/readDatMatrix.h"
+#include "../includes/errorMsg.h"
+#include "../includes/logFile.h"
 
 //#define VERBOS
 
@@ -108,8 +108,8 @@ void readDatMatrixFromString(const string & matrixFileString,
 }
 
 
-#include "fromQtoPt.h"
-#include "definitions.h"
+#include "../includes/fromQtoPt.h"
+#include "../includes/definitions.h"
 
 #include <iostream>
 using namespace std;

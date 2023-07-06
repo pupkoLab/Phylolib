@@ -1,5 +1,5 @@
 
-#include "doubleRep.h"
+#include "../includes/doubleRep.h"
 
 doubleRepMantisa::doubleRepMantisa(MDOUBLE mantissa, int expon){
 	_mantissa=mantissa;

@@ -1,6 +1,6 @@
 
-#include "errorMsg.h"
-#include "logFile.h"
+#include "../includes/errorMsg.h"
+#include "../includes/logFile.h"
 
 #include <cassert>
 using namespace std;

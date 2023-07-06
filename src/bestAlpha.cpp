@@ -3,13 +3,13 @@
 #include <iostream>
 using namespace std;
 
-#include "bestAlpha.h"
-#include "bblEM.h"
-#include "bblEMProportionalEB.h"
-#include "bblLSProportionalEB.h"
-#include "numRec.h"
-#include "logFile.h"
-#include "errorMsg.h"
+#include "../includes/bestAlpha.h"
+#include "../includes/bblEM.h"
+#include "../includes/bblEMProportionalEB.h"
+#include "../includes/bblLSProportionalEB.h"
+#include "../includes/numRec.h"
+#include "../includes/logFile.h"
+#include "../includes/errorMsg.h"
 
 #ifndef VERBOS
 #define VERBOS

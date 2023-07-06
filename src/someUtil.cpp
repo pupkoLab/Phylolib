@@ -1,9 +1,9 @@
 // $Id: someUtil.cpp 15479 2016-10-10 16:25:21Z elilevy $
 
 
-#include "someUtil.h"
-#include "errorMsg.h"
-#include "talRandom.h"
+#include "../includes/someUtil.h"
+#include "../includes/errorMsg.h"
+#include "../includes/talRandom.h"
 #include <cmath>
 #include <ctime>
 #include <chrono>
@@ -517,7 +517,7 @@ bool DSMALL_EQUAL(const MDOUBLE x1, const MDOUBLE x2, MDOUBLE epsilon/*1.1920928
 }
 
 //#ifdef WIN32
-//#include "direct.h"
+//#include "../includes/direct.h"
 //void createDir(const string & curDir, const string & dirName){// COPYRIGHT OF ITAY MAYROSE.
 //	string newDir;
 //	if (curDir == "")
@@ -740,7 +740,7 @@ MDOUBLE calcPearsonCorrelation(const Vdouble& oneRatesVec, const Vdouble& otherR
 }
 
 /********************************************************************************************
-Benjamini–Hochberg–Yekutieli procedure controls the false discovery rate
+Benjaminiï¿½Hochbergï¿½Yekutieli procedure controls the false discovery rate
 *********************************************************************************************/
 MDOUBLE computeFDRthreshold(Vdouble& pVals, MDOUBLE levelOfFDRcontroled, bool isPValsSorted){
 	MDOUBLE FDRthreshold = 0;

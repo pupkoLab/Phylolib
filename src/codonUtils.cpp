@@ -1,6 +1,6 @@
 
-#include "codonUtils.h"
-#include "numRec.h"
+#include "../includes/codonUtils.h"
+#include "../includes/numRec.h"
 #include <algorithm>
 
 

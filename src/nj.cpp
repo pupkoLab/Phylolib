@@ -4,10 +4,10 @@
 // last modified 3 Nov 2002
 
 
-#include "nj.h"
-#include "errorMsg.h"
-#include "logFile.h"
-#include "treeUtil.h"
+#include "../includes/nj.h"
+#include "../includes/errorMsg.h"
+#include "../includes/logFile.h"
+#include "../includes/treeUtil.h"
 #include <cassert>
 #include <algorithm>
 #include <map>

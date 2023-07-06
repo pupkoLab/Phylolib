@@ -1,10 +1,10 @@
 // $Id: fromQtoPt.cpp 5788 2009-01-19 22:24:16Z rubi $
 
-#include "definitions.h"
-#include "fromQtoPt.h"
-#include "errorMsg.h"
-#include "numRec.h"
-#include "matrixUtils.h"
+#include "../includes/definitions.h"
+#include "../includes/fromQtoPt.h"
+#include "../includes/errorMsg.h"
+#include "../includes/numRec.h"
+#include "../includes/matrixUtils.h"
 #include <iostream>
 #include <cassert>
 using namespace std;

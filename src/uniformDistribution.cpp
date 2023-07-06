@@ -1,6 +1,6 @@
 // $Id: uniformDistribution.cpp 2712 2007-11-19 14:50:12Z itaymay $
 
-#include "uniformDistribution.h"
+#include "../includes/uniformDistribution.h"
 
 
 uniformDistribution::uniformDistribution(const size_t numOfCategories, MDOUBLE lowerBound,

@@ -1,10 +1,10 @@
 // $Id: njConstrain.cpp 962 2006-11-07 15:13:34Z privmane $
 
 
-#include "definitions.h"  
+#include "../includes/definitions.h"  
 #include <cassert>
-#include "njConstrain.h"
-#include "logFile.h"
+#include "../includes/njConstrain.h"
+#include "../includes/logFile.h"
 
 
 

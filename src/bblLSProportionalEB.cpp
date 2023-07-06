@@ -1,8 +1,8 @@
 
-#include "bblLSProportionalEB.h"
-#include "numRec.h"
-#include "logFile.h"
-#include "errorMsg.h"
+#include "../includes/bblLSProportionalEB.h"
+#include "../includes/numRec.h"
+#include "../includes/logFile.h"
+#include "../includes/errorMsg.h"
 
 
 bblLSProportionalEB::bblLSProportionalEB(tree& et, const vector<sequenceContainer>& sc, multipleStochasticProcess* msp, const gammaDistribution* pProportionDist, Vdouble& treeLikelihoodVec, const bool optimizeSelectedBranches, int maxIter, MDOUBLE epsilon)

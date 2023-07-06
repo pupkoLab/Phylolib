@@ -1,8 +1,8 @@
 // $RCSfile$ $Revision: 4699 $ $Date: 2008-08-14 17:19:46 +0300 (יום ה, 14 אוג 2008) $
 
 
-#include "likeDist2Codon.h"
-#include "numRec.h"
+#include "../includes/likeDist2Codon.h"
+#include "../includes/numRec.h"
 
 
 const MDOUBLE likeDist2Codon::giveDistance(	const countTableComponentGam& ctc,

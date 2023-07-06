@@ -1,7 +1,7 @@
 // $Id: fromCountTableComponentToDistance.cpp 9582 2011-06-21 11:31:21Z cohenofi $
 
-#include "fromCountTableComponentToDistance.h"
-#include "likeDist.h"
+#include "../includes/fromCountTableComponentToDistance.h"
+#include "../includes/likeDist.h"
 #include <cassert>
 
 fromCountTableComponentToDistance::fromCountTableComponentToDistance(

@@ -1,9 +1,9 @@
 // $Id: sequenceContainer.cpp 11751 2013-09-12 21:52:03Z cohenofi $
 
-#include "sequenceContainer.h"
-#include "logFile.h"
-#include "someUtil.h"
-#include "fastaFormat.h"
+#include "../includes/sequenceContainer.h"
+#include "../includes/logFile.h"
+#include "../includes/someUtil.h"
+#include "../includes/fastaFormat.h"
 
 sequenceContainer::sequenceContainer(const sequenceContainer& other,const alphabet *inAlph) :
 _generalRemarks(other._generalRemarks),
