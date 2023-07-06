@@ -1,7 +1,7 @@
 
-#include "wYangModel.h"
-#include "codon.h"
-#include "readDatMatrix.h" // for the normalizeQ function.
+#include "../includes/wYangModel.h"
+#include "../includes/codon.h"
+#include "../includes/readDatMatrix.h" // for the normalizeQ function.
 
 wYangModel::wYangModel(const MDOUBLE inW, const MDOUBLE inK,bool globalW,  codon * coAlph):
 	_w(inW),_k(inK),_globalW(globalW),_coAlpha(NULL){

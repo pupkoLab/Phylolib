@@ -1,8 +1,8 @@
 
-#include "definitions.h"
-#include "computeUpAlg.h"
-#include "treeIt.h"
-#include "logFile.h"
+#include "../includes/definitions.h"
+#include "../includes/computeUpAlg.h"
+#include "../includes/treeIt.h"
+#include "../includes/logFile.h"
 #include <iostream>
 #include <cassert>
 using namespace std;

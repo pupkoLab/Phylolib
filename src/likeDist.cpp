@@ -1,9 +1,9 @@
 // $Id: likeDist.cpp 9582 2011-06-21 11:31:21Z cohenofi $
 
 
-#include "likeDist.h"
-#include "numRec.h"
-#include "someUtil.h"
+#include "../includes/likeDist.h"
+#include "../includes/numRec.h"
+#include "../includes/someUtil.h"
 
 stochasticProcess& likeDist::getNonConstStochasticProcess() {
   if (!_nonConstSpPtr) {

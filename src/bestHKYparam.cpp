@@ -1,11 +1,11 @@
 
-#include "bblEM.h"
-#include "bblEMProportionalEB.h"
-#include "bblLSProportionalEB.h"
-#include "numRec.h"
-#include "logFile.h"
-#include "bestAlpha.h"
-#include "bestHKYparam.h"
+#include "../includes/bblEM.h"
+#include "../includes/bblEMProportionalEB.h"
+#include "../includes/bblLSProportionalEB.h"
+#include "../includes/numRec.h"
+#include "../includes/logFile.h"
+#include "../includes/bestAlpha.h"
+#include "../includes/bestHKYparam.h"
 
 #include <iostream>
 using namespace std;

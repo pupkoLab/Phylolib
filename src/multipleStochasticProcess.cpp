@@ -1,6 +1,6 @@
 
-#include "multipleStochasticProcess.h"
-#include "errorMsg.h"
+#include "../includes/multipleStochasticProcess.h"
+#include "../includes/errorMsg.h"
 
 multipleStochasticProcess::multipleStochasticProcess()
 {

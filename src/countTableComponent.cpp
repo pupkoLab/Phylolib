@@ -3,8 +3,8 @@
 // version 1.00
 // last modified 3 Nov 2002
 
-#include "countTableComponent.h"
-#include "logFile.h"
+#include "../includes/countTableComponent.h"
+#include "../includes/logFile.h"
 
 void countTableComponentHom::zero() {
 	for (size_t alphabetChar1=0; alphabetChar1 < _countValues.size() ;++alphabetChar1) {

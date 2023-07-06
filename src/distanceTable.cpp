@@ -1,7 +1,7 @@
 // $Id: distanceTable.cpp 1740 2007-02-26 13:53:10Z itaymay $
 
-#include "definitions.h"
-#include "distanceTable.h"
+#include "../includes/definitions.h"
+#include "../includes/distanceTable.h"
 
 void giveDistanceTable(const distanceMethod* dis,
 		       const sequenceContainer& sc,

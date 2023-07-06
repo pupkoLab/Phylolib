@@ -1,8 +1,8 @@
 // $Id: gammaUtilities.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "gammaUtilities.h"
-#include "logFile.h"
-#include "errorMsg.h"
+#include "../includes/gammaUtilities.h"
+#include "../includes/logFile.h"
+#include "../includes/errorMsg.h"
 #include <cmath>
 
 

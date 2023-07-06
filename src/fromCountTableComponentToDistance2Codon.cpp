@@ -1,8 +1,8 @@
 // $Id: fromCountTableComponentToDistance2Codon.cpp 950 2006-10-19 12:12:34Z eyalprivman $
 
-#include "fromCountTableComponentToDistance2Codon.h"
-#include "likeDist2Codon.h"
-#include "likeDist.h"
+#include "../includes/fromCountTableComponentToDistance2Codon.h"
+#include "../includes/likeDist2Codon.h"
+#include "../includes/likeDist.h"
 #include <cassert>
 
 fromCountTableComponentToDistance2Codon::fromCountTableComponentToDistance2Codon(

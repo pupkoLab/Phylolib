@@ -1,9 +1,9 @@
 // $Id: maseFormat.cpp 962 2006-11-07 15:13:34Z privmane $
 
 
-#include "maseFormat.h"
-#include "someUtil.h"
-#include "errorMsg.h"
+#include "../includes/maseFormat.h"
+#include "../includes/someUtil.h"
+#include "../includes/errorMsg.h"
 
 sequenceContainer maseFormat::read(istream &infile, const alphabet* alph) {
 	sequenceContainer mySeqData = readUnAligned(infile, alph);

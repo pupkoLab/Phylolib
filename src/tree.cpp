@@ -1,9 +1,9 @@
 
-#include "definitions.h"
-#include "tree.h"
-#include "treeUtil.h"
-#include "logFile.h"
-#include "someUtil.h"
+#include "../includes/definitions.h"
+#include "../includes/tree.h"
+#include "../includes/treeUtil.h"
+#include "../includes/logFile.h"
+#include "../includes/someUtil.h"
 #include <cassert>
 #include <algorithm>
 #include <iostream>
@@ -425,10 +425,19 @@ void tree::getAllLeaves(vector<nodeP> &vec, const nodeP fromHereDown ) const {
 		return;
 	}
 
+    vector<nodeP> non_leaf_vec;
+    non_leaf_vec.push_back(fromHereDown);
+
+
 	size_t pos = 0;
-	while (vec[pos] != *vec.end()) {
-		for (size_t k=0; k < vec[pos]->getNumberOfSons(); k++) {
-			if (vec[pos]->getSon(k)->isLeaf()) vec.push_back(vec[pos]->getSon(k));
+	while (non_leaf_vec[pos] != *non_leaf_vec.end()) {
+		for (size_t k=0; k < non_leaf_vec[pos]->getNumberOfSons(); k++) {
+            nodeP current_node = non_leaf_vec[pos]->getSon(k);
+			if (current_node->isLeaf()) {
+                vec.push_back(current_node);
+            } else {
+                non_leaf_vec.push_back(current_node);
+            }
 		}
 		++pos;
 	}

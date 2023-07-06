@@ -1,7 +1,7 @@
 // $Id: stochasticProcess.cpp 4660 2008-08-12 14:31:38Z cohenofi $
 
-#include "stochasticProcess.h"
-#include "errorMsg.h"
+#include "../includes/stochasticProcess.h"
+#include "../includes/errorMsg.h"
 
 stochasticProcess& stochasticProcess::operator=(const stochasticProcess &otherStoc) {
 	if (this != &otherStoc) {              // Check for self-assignment

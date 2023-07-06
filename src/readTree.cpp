@@ -1,10 +1,10 @@
 // $Id: readTree.cpp 5525 2008-12-19 20:17:05Z itaymay $
 
 
-#include "definitions.h"
-#include "errorMsg.h"
-#include "someUtil.h"
-#include "readTree.h"
+#include "../includes/definitions.h"
+#include "../includes/errorMsg.h"
+#include "../includes/someUtil.h"
+#include "../includes/readTree.h"
 #include <iostream>
 using namespace std;
 

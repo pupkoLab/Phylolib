@@ -1,10 +1,10 @@
 
 // $Id: computePijComponent.cpp 9253 2011-01-31 01:37:21Z rubi $
 
-#include "definitions.h"
-#include "treeIt.h"
-#include "computePijComponent.h"
-#include "logFile.h"
+#include "../includes/definitions.h"
+#include "../includes/treeIt.h"
+#include "../includes/computePijComponent.h"
+#include "../includes/logFile.h"
 
 void computePijHomSpec::fillPij(
 	const MDOUBLE dis,

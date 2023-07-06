@@ -1,6 +1,6 @@
 
-#include "logFile.h"
-#include "errorMsg.h"
+#include "../includes/logFile.h"
+#include "../includes/errorMsg.h"
 
 int myLog::_loglvl = 3;
 ostream *myLog::_out= NULL;

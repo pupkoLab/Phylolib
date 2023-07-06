@@ -1,7 +1,7 @@
 // $Id: evaluateCharacterFreq.cpp 10474 2012-03-18 07:54:07Z itaymay $
 
-#include "evaluateCharacterFreq.h"
-#include "someUtil.h"
+#include "../includes/evaluateCharacterFreq.h"
+#include "../includes/someUtil.h"
 #include <cassert>
 
 vector<MDOUBLE> sumAlphabetCounts(const sequenceContainer & sc) {

@@ -1,6 +1,6 @@
 // $Id: talRandom.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "talRandom.h"
+#include "../includes/talRandom.h"
 
 RandintTal talRandom::r = static_cast<long>(time(0)) ;
 

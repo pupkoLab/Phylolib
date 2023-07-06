@@ -1,7 +1,7 @@
 // $Id: uniDistribution.cpp 2711 2007-11-19 14:49:54Z itaymay $
 
-#include "uniDistribution.h"
-#include "errorMsg.h"
+#include "../includes/uniDistribution.h"
+#include "../includes/errorMsg.h"
 
 
 void uniDistribution::change_number_of_categories(int in_number_of_categories)

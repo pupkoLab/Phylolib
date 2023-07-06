@@ -1,10 +1,10 @@
 // $Id: betaDistribution.cpp 3985 2008-05-11 11:00:44Z adido $
 
-#include "betaDistribution.h"
-#include "gammaUtilities.h"
-#include "betaUtilities.h"
-#include "errorMsg.h"
-#include "logFile.h"
+#include "../includes/betaDistribution.h"
+#include "../includes/gammaUtilities.h"
+#include "../includes/betaUtilities.h"
+#include "../includes/errorMsg.h"
+#include "../includes/logFile.h"
 #include <cmath>
 
 

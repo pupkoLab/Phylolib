@@ -1,8 +1,8 @@
 // $Id: numRec.cpp 5990 2009-03-19 10:21:20Z privmane $
 
 
-#include "numRec.h"
-#include "matrixUtils.h"
+#include "../includes/numRec.h"
+#include "../includes/matrixUtils.h"
 #include <cassert>
 #include <algorithm>
 

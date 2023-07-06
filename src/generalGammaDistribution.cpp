@@ -1,9 +1,9 @@
 // $Id: generalGammaDistribution.cpp 2768 2007-11-22 12:57:44Z osnatz $
 
-#include "generalGammaDistribution.h"
-#include "gammaUtilities.h"
-#include "errorMsg.h"
-#include "logFile.h"
+#include "../includes/generalGammaDistribution.h"
+#include "../includes/gammaUtilities.h"
+#include "../includes/errorMsg.h"
+#include "../includes/logFile.h"
 #include <cmath>
 
 

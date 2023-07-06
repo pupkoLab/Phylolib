@@ -1,7 +1,7 @@
 // $Id: sequence.cpp 7627 2010-03-06 21:56:30Z cohenofi $
 
 
-#include "sequence.h"
+#include "../includes/sequence.h"
 
 #include <algorithm>
 using namespace std;

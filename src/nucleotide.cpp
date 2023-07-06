@@ -1,6 +1,6 @@
 
-#include "nucleotide.h"
-#include "errorMsg.h"
+#include "../includes/nucleotide.h"
+#include "../includes/errorMsg.h"
 
 nucleotide::nucleotide() {
 	_relation.resize(4);

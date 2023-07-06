@@ -1,5 +1,5 @@
 
-#include "gainLossAlphabet.h"
+#include "../includes/gainLossAlphabet.h"
 
 gainLossAlphabet::gainLossAlphabet() {}
 

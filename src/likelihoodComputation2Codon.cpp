@@ -1,11 +1,11 @@
 
-#include "likelihoodComputation2Codon.h"
+#include "../includes/likelihoodComputation2Codon.h"
 
-#include "wYangModel.h"
-#include "definitions.h"
-#include "tree.h"
-#include "computeUpAlg.h"
-#include "likelihoodComputation.h"
+#include "../includes/wYangModel.h"
+#include "../includes/definitions.h"
+#include "../includes/tree.h"
+#include "../includes/computeUpAlg.h"
+#include "../includes/likelihoodComputation.h"
 
 #include <cmath>
 #include <cassert>

@@ -1,9 +1,9 @@
 
-#include "likelihoodComputationGL.h"
+#include "../includes/likelihoodComputationGL.h"
 
-#include "definitions.h"
-#include "tree.h"
-#include "likelihoodComputation.h"
+#include "../includes/definitions.h"
+#include "../includes/tree.h"
+#include "../includes/likelihoodComputation.h"
 #include <cmath>
 #include <cassert>
 

@@ -1,7 +1,7 @@
 // $Id: tamura92.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "tamura92.h"
-#include "errorMsg.h"
+#include "../includes/tamura92.h"
+#include "../includes/errorMsg.h"
 
 // This implementation was copied from the Bio++ Phyl library (by Julien Dutheil) - file T92.cpp
 

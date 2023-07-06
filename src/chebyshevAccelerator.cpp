@@ -1,6 +1,6 @@
 // $Id: chebyshevAccelerator.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "chebyshevAccelerator.h"
+#include "../includes/chebyshevAccelerator.h"
 #include <cmath>
 #include <cassert>
 

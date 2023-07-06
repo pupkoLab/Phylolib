@@ -1,13 +1,13 @@
 // $Id: codon.cpp 5981 2009-03-17 14:39:39Z rubi $
 
-#include "codon.h"
-#include "nucleotide.h"
-#include "amino.h"
-#include "logFile.h"
-#include "definitions.h"
-#include "someUtil.h"
-#include "matrixUtils.h"
-#include "sequenceContainer.h"
+#include "../includes/codon.h"
+#include "../includes/nucleotide.h"
+#include "../includes/amino.h"
+#include "../includes/logFile.h"
+#include "../includes/definitions.h"
+#include "../includes/someUtil.h"
+#include "../includes/matrixUtils.h"
+#include "../includes/sequenceContainer.h"
 #include <sstream>
 #include <cctype>
 #define INITIATION_CODON "i"

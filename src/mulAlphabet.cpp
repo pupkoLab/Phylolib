@@ -1,11 +1,11 @@
 // $Id: mulAlphabet.cpp 15489 2016-10-25 17:30:40Z elilevy $
 
 
-#include "mulAlphabet.h"
-#include "distribution.h"
-#include "errorMsg.h"
+#include "../includes/mulAlphabet.h"
+#include "../includes/distribution.h"
+#include "../includes/errorMsg.h"
 #include <iostream>
-#include "logFile.h"
+#include "../includes/logFile.h"
 #include <algorithm>
 
 

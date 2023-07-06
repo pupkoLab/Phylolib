@@ -1,9 +1,9 @@
 // $Id: nexusFormat.cpp 5987 2009-03-18 18:13:53Z itaymay $
 
 
-#include "nexusFormat.h"
-#include "someUtil.h"
-#include "errorMsg.h"
+#include "../includes/nexusFormat.h"
+#include "../includes/someUtil.h"
+#include "../includes/errorMsg.h"
 #include <map>
 
 sequenceContainer nexusFormat::read(istream &infile, const alphabet* pAlph) {

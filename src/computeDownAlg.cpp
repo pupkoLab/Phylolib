@@ -1,7 +1,7 @@
 
-#include "definitions.h"
-#include "computeDownAlg.h"
-#include "treeIt.h"
+#include "../includes/definitions.h"
+#include "../includes/computeDownAlg.h"
+#include "../includes/treeIt.h"
 
 // THIS IS THE MOST BASIC FUNCTION. IT FILLS THE DOWN COMPONENT FOR A SPECIFIC POSITION
 // AND ASSUMES NO RATE VARIATION (I.E., A SINGLE RATE CATEGORY).

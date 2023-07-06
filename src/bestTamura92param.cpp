@@ -1,15 +1,15 @@
 // $Id: bestTamura92param.cpp 962 2006-11-07 15:13:34Z privmane $
 
-#include "bestTamura92param.h"
+#include "../includes/bestTamura92param.h"
 #include <iostream>
 using namespace std;
 
-#include "bblEM.h"
-#include "bblEMProportionalEB.h"
-#include "bblLSProportionalEB.h"
-#include "numRec.h"
-#include "logFile.h"
-#include "bestAlpha.h"
+#include "../includes/bblEM.h"
+#include "../includes/bblEMProportionalEB.h"
+#include "../includes/bblLSProportionalEB.h"
+#include "../includes/numRec.h"
+#include "../includes/logFile.h"
+#include "../includes/bestAlpha.h"
 
 bestTamura92ParamFixedTree::bestTamura92ParamFixedTree(const tree& et, // find best TrTv and theta
 													   const sequenceContainer& sc,

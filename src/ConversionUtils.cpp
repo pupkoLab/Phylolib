@@ -1,7 +1,7 @@
 
-#include "ConversionUtils.h"
-#include "someUtil.h"
-#include "errorMsg.h"
+#include "../includes/ConversionUtils.h"
+#include "../includes/someUtil.h"
+#include "../includes/errorMsg.h"
 
 #include <cmath>
 

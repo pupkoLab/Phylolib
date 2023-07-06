@@ -1,7 +1,7 @@
 
-#include "unObservableData.h"
-#include "likelihoodComputation.h"
-#include "likelihoodComputationGL.h"
+#include "../includes/unObservableData.h"
+#include "../includes/likelihoodComputation.h"
+#include "../includes/likelihoodComputationGL.h"
 #include <cmath>
 
 

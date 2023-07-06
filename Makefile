@@ -1,20 +1,22 @@
 CC := g++
 CFLAGS := -g -std=c++11
-PROJDIRS := src
+SRCDIR := src/
+OBJDIR := build/
+TARGET := lib/phylolib.a
 
-SRCFILES := $(wildcard $(PROJDIRS)/*.cpp)
-OBJFILES := $(patsubst %.cpp,%.o,$(SRCFILES))
+
+SRCFILES := $(patsubst $(SRCDIR)%.cpp,%.cpp, $(wildcard $(SRCDIR)*.cpp))
+OBJFILES := $(patsubst %.cpp,$(OBJDIR)%.o,$(SRCFILES))
 
 
 $(info	VAR is $(OBJFILES))
 
-
-all: phylolib.a
-
-
-phylolib.a: $(OBJFILES)
-	ar rvs phylolib.a $?
+all: $(TARGET)
 
 
-%.o: %.cpp Makefile
+$(TARGET): $(OBJFILES)
+	ar rvs $(TARGET) $?
+
+
+$(OBJDIR)%.o:  $(SRCDIR)%.cpp Makefile
 	$(CC) $(CFLAGS) -c $< -o $@

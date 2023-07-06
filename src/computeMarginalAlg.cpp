@@ -1,8 +1,8 @@
 
-#include "definitions.h"
-#include "treeIt.h"
-#include "computeMarginalAlg.h"
-#include "doubleRep.h"
+#include "../includes/definitions.h"
+#include "../includes/treeIt.h"
+#include "../includes/computeMarginalAlg.h"
+#include "../includes/doubleRep.h"
 #include <iostream>
 #include <cassert>
 using namespace std;

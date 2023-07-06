@@ -1,6 +1,6 @@
 // $Id: amino.cpp 2414 2007-10-08 14:34:42Z adist $
 
-#include "amino.h"
+#include "../includes/amino.h"
 
 //VVint amino::_relation;
 

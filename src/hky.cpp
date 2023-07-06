@@ -1,8 +1,8 @@
 // $Id: hky.cpp 4291 2008-06-23 10:23:10Z itaymay $
 
 
-#include "hky.h"
-#include "errorMsg.h"
+#include "../includes/hky.h"
+#include "../includes/errorMsg.h"
 
 hky::hky(const MDOUBLE inProb_a,
 					const MDOUBLE inProb_c,

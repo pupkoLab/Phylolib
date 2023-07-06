@@ -1,8 +1,8 @@
 
-#include "bestAlphaAndK.h"
-#include "computePijComponent.h"
-#include "betaOmegaDistribution.h"
-#include "codonUtils.h"
+#include "../includes/bestAlphaAndK.h"
+#include "../includes/computePijComponent.h"
+#include "../includes/betaOmegaDistribution.h"
+#include "../includes/codonUtils.h"
 
 
 optimizeSelectonParameters::optimizeSelectonParameters(tree& et, //find Best params and best BBL
