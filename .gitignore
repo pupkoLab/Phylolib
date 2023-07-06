@@ -2,7 +2,7 @@
 *phylolib.a
 build
 lib
-test/main
+*main
 *.d
 *.o
 *.vscode
