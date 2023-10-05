@@ -6,6 +6,7 @@
 #include "../includes/someUtil.h"
 #include <cassert>
 #include <algorithm>
+#include <stack>
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -183,6 +184,7 @@ tree::tree(const string& treeFileName) {
 		in.close();
 		create_names_to_internal_nodes();		
 		makeSureAllBranchesArePositive();
+        setNumLeavesUnderAllNode(_root);
 		return;
 	}
 	if (in.is_open())
@@ -194,6 +196,7 @@ tree::tree(istream &in) {
 	if (readPhylipTreeTopology(in)) {
 		create_names_to_internal_nodes();
 		makeSureAllBranchesArePositive();
+        setNumLeavesUnderAllNode(_root);
 		return;
 	}
 	errorMsg::reportError("Unable to read phylip tree file",1);// also quit the program
@@ -203,6 +206,7 @@ tree::tree(istream &in,vector<char>& isFixed) {
 	if (readPhylipTreeTopology(in,isFixed)) {
 		create_names_to_internal_nodes();
 		makeSureAllBranchesArePositive();
+        setNumLeavesUnderAllNode(_root);
 		return;
 	}
 	errorMsg::reportError("Unable to read phylip tree file",1);// also quit the program
@@ -212,6 +216,7 @@ tree::tree(const vector<char>& tree_contents) {
 	readPhylipTreeTopology(tree_contents);
 	create_names_to_internal_nodes();
 	makeSureAllBranchesArePositive();
+    setNumLeavesUnderAllNode(_root);
 	return;
 }
 
@@ -219,6 +224,7 @@ tree::tree(const vector<char>& tree_contents, vector<char>& isFixed) {
 	readPhylipTreeTopology(tree_contents,isFixed);
 	create_names_to_internal_nodes();
 	makeSureAllBranchesArePositive();
+    setNumLeavesUnderAllNode(_root);
 	return;
 }
 
@@ -230,6 +236,7 @@ tree::tree(const tree &otherTree) {
 	_root->setName(otherTree._root->name());
 	_root->setID(otherTree._root->id());
 	_root->setComment(otherTree._root->getComment());
+    _root->_leaves = otherTree._leaves;
 	for (size_t i=0; i <otherTree._root->getNumberOfSons(); ++i) {
 		recursiveBuildTree( _root, otherTree.getRoot()->getSon(i));
 	}
@@ -377,8 +384,9 @@ void tree::getAllHTUs(vector<nodeP> &vec, const nodeP fromHereDown ) const {
 	if (fromHereDown->isLeaf()) return;
 	vec.push_back(fromHereDown);
 
+
 	size_t pos = 0;
-	while (vec[pos] != *vec.end()) {
+	while (vec.begin() + pos != vec.end()) {
 		for (size_t k=0; k < vec[pos]->getNumberOfSons(); k++) {
 			if (vec[pos]->getSon(k)->isInternal()) vec.push_back(vec[pos]->getSon(k));
 		}
@@ -407,7 +415,7 @@ void tree::getAllNodes(vector<nodeP> &vec, const nodeP fromHereDown ) const {
 	vec.push_back(fromHereDown);
 
 	size_t pos = 0;
-	while (vec[pos] != *vec.end()) {
+	while (vec.begin() + pos != vec.end()) {
 		for (size_t k=0; k < vec[pos]->getNumberOfSons(); k++) {
 			vec.push_back(vec[pos]->getSon(k));
 		}
@@ -416,6 +424,17 @@ void tree::getAllNodes(vector<nodeP> &vec, const nodeP fromHereDown ) const {
 	return;
 }
 
+std::vector<MDOUBLE> tree::getBranchesLengths() {
+	std::vector<nodeP> _nodevec;
+    std::vector<MDOUBLE> branchLengths;
+	getAllNodes(_nodevec,_root);
+	for (size_t i=0; i < _nodevec.size(); ++i) {
+		if (_nodevec[i]!=_root) {
+			branchLengths.push_back(_nodevec[i]->dis2father());
+		}
+	}
+	return branchLengths;
+}
 
 
 void tree::getAllLeaves(vector<nodeP> &vec, const nodeP fromHereDown ) const {
@@ -430,7 +449,7 @@ void tree::getAllLeaves(vector<nodeP> &vec, const nodeP fromHereDown ) const {
 
 
 	size_t pos = 0;
-	while (non_leaf_vec[pos] != *non_leaf_vec.end()) {
+	while (non_leaf_vec.begin() + pos != non_leaf_vec.end()) {
 		for (size_t k=0; k < non_leaf_vec[pos]->getNumberOfSons(); k++) {
             nodeP current_node = non_leaf_vec[pos]->getSon(k);
 			if (current_node->isLeaf()) {
@@ -583,6 +602,30 @@ void tree::create_names_to_internal_nodes() {
 		htuVec[i]->setName((string)"N" + name);
 	}
 }
+
+void tree::setNumLeavesUnderAllNode(nodeP fromHereDown) {
+    if (fromHereDown->isLeaf()) {
+        fromHereDown->_leaves = 1;
+        return;
+    }
+    for (auto son: fromHereDown->getSons()) {
+        setNumLeavesUnderAllNode(son);
+        fromHereDown->_leaves += son->_leaves;
+    }
+}
+
+void tree::setHeightUnderAllNode(nodeP fromHereDown) {
+    if (fromHereDown->isLeaf()) {
+        fromHereDown->_height = 0;
+        return;
+    }
+	fromHereDown->_height++;
+    for (auto son: fromHereDown->getSons()) {
+        setHeightUnderAllNode(son);
+    }
+}
+
+
 
 
 void  tree::multipleAllBranchesByFactor(MDOUBLE InFactor) {
@@ -1077,6 +1120,7 @@ tree::nodeP tree::recursiveBuildTree(tree::nodeP father_nodePTR, const tree::nod
 	childPTR->setName(other_nodePTR->name());
 	childPTR->setComment(other_nodePTR->getComment());
 	childPTR->setDisToFather(other_nodePTR->dis2father());
+    childPTR->_leaves = other_nodePTR->_leaves;
 	for (size_t k = 0 ; k < other_nodePTR->getNumberOfSons() ; ++k) {
 			recursiveBuildTree(childPTR, other_nodePTR->getSon(k));
 	}
@@ -1209,6 +1253,7 @@ void tree::shrinkNode(nodeP nodePTR) {
 void tree::createRootNode() {
 	clear();
 	_root = new TreeNode(0);
+    _root->_leaves=1;
 	_leaves=1;
 	_nodes=1;
 }
