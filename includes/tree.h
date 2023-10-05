@@ -24,7 +24,9 @@ public:
 public:
 	class TreeNode {
 	public:
-	  explicit TreeNode(const int id) :_sons(0),_father(NULL),_id(id),_name( (string)"" ),_dis2father(TREE_NULL),_comment((string)"") {}
+	  explicit TreeNode(const int id) :_sons(0),_father(NULL),_id(id),
+                                       _name( (string)"" ),_dis2father(TREE_NULL),
+                                       _comment((string)""), _leaves(0) {}
 		const int id() const {return _id;}
 		const string name() const {return _name;}
 		const MDOUBLE dis2father() const {return _dis2father;}
@@ -37,7 +39,12 @@ public:
 		void setDisToFather(const MDOUBLE dis) {_dis2father = dis;}
 		void setFather(TreeNode* tn){_father=tn;}
 		size_t getNumberOfSons() const {return _sons.size();}
+        size_t getNumberLeaves() const {return _leaves;}
+        size_t getHeight() const {return _height;}
+
 		TreeNode* getSon (int i) {return _sons[i];}
+        std::vector<TreeNode*> getSons () {return _sons;}
+
 		TreeNode* getLastSon () {return _sons.back();}
 		void removeLastSon() {_sons.pop_back();}
 		void removeSon(TreeNode* pSon);
@@ -70,6 +77,9 @@ public:
 		string _name;
 		MDOUBLE _dis2father;
 	    string _comment;
+        size_t _leaves;
+        size_t _height;
+
 		friend class tree;
 	};
 //------------------------------------------------------------
@@ -106,7 +116,9 @@ public:
 //*******************************************************************************
 
 	nodeP getRoot() const {return _root;};
-	inline size_t getLeavesNum() const; 
+	inline size_t getLeavesNum() const;
+    void setNumLeavesUnderAllNode(nodeP startNode);
+	void setHeightUnderAllNode(nodeP starNode);
 	inline size_t getNodesNum() const;
 	inline size_t getInternalNodesNum() const;
 	//findNodeByName: searches the subtree of myNode for a node with a specified name.
@@ -143,6 +155,7 @@ public:
 	void makeSureAllBranchesArePositive();
 	void makeSureAllBranchesAreLargerThanEpsilon(MDOUBLE epsilon);
 	MDOUBLE getAllBranchesLengthSum();
+    std::vector<MDOUBLE> getBranchesLengths();
 
 	// removeNodeFromSonListOfItsFather:
 	// removes sonNode from its father according to the name of sonNode
