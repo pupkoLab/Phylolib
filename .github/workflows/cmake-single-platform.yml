@@ -36,8 +36,6 @@ jobs:
     # - name: Build project
     #   run: tar -czf libPhylolib.tar.gz includes libPhylolib.a
 
-    - name: Check directory
-      run: ls -l
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
