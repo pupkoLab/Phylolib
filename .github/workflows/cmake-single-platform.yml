@@ -69,3 +69,4 @@ jobs:
         asset_path: ./artifact_${{ matrix.os }}.tar.gz
         asset_name: phylolib_${{ matrix.os }}_${{ steps.generate_release_tag.outputs.release_tag }}.tar.gz
         asset_content_type: application/zip
+        
