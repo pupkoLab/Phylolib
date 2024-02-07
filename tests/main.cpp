@@ -12,7 +12,7 @@ int main(){
 
     tree tr = tree("/home/elyawy/Data/yeast/RAxML_tree.tree"); // read a tree from a newick formatted file.
 
-
+    
     vector<tree::nodeP> vec;
     // tr.getAllLeaves(vec, tr.getRoot());
     double sum = 0;
