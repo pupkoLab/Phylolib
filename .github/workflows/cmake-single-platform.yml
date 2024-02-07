@@ -5,6 +5,8 @@ name: Build and release Phylolib static library
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - "v*.*.*"
   pull_request:
     branches: [ "main" ]
 
@@ -38,11 +40,11 @@ jobs:
 
 
 
-    - name: Generate release tag
-      id: generate_release_tag
-      uses: alexvingg/next-release-tag@v1.0.4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Generate release tag
+    #   id: generate_release_tag
+    #   uses: alexvingg/next-release-tag@v1.0.4
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
 
     # - name: Upload Artifact
     #   uses: actions/upload-artifact@v4
@@ -54,8 +56,8 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ steps.generate_release_tag.outputs.release_tag }}
-        name: Release ${{ steps.generate_release_tag.outputs.release_tag }}
+        # tag_name: ${{ steps.generate_release_tag.outputs.release_tag }}
+        # name: Release ${{ steps.generate_release_tag.outputs.release_tag }}
         files: build/*.tar.gz
 
     # - name: Create Release
