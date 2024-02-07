@@ -119,7 +119,7 @@ set_target_properties(Phylolib PROPERTIES PUBLIC_HEADER "includes/aaJC.h;include
 
 
 install (TARGETS Phylolib
-    ARCHIVE DESTINATION ${CMAKE_BINARY_DIR}/dist
-    PUBLIC_HEADER DESTINATION ${CMAKE_BINARY_DIR}/dist/headers)
+    ARCHIVE DESTINATION build
+    PUBLIC_HEADER DESTINATION build/includes)
 
 include(CPack)
