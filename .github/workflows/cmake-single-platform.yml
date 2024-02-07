@@ -37,11 +37,6 @@ jobs:
     #   run: tar -czf libPhylolib.tar.gz includes libPhylolib.a
 
 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        path: build/*.tar.gz
-        name: phylolib_${{ matrix.os }}.tar.gz
 
     - name: Generate release tag
       id: generate_release_tag
@@ -49,14 +44,19 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
-
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        path: build/*.tar.gz
+        name: phylolib_${{ matrix.os }}_${{ steps.generate_release_tag.outputs.release_tag }}
+  
 
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
         tag_name: ${{ steps.generate_release_tag.outputs.release_tag }}
         name: Release ${{ steps.generate_release_tag.outputs.release_tag }}
-        files: ./phylolib_${{ matrix.os }}.tar.gz
+        files: phylolib_${{ matrix.os }}_${{ steps.generate_release_tag.outputs.release_tag }}
 
     # - name: Create Release
     #   id: create_release
