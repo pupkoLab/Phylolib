@@ -122,3 +122,4 @@ install (TARGETS Phylolib
     ARCHIVE DESTINATION ${CMAKE_BINARY_DIR}/dist
     PUBLIC_HEADER DESTINATION ${CMAKE_BINARY_DIR}/dist/headers)
 
+include(CPack)
