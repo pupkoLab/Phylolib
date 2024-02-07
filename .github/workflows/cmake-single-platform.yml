@@ -28,7 +28,8 @@ jobs:
 
     - name: Build project
       uses: nicledomaS/cmake_build_action@v1.4
-
+      with:
+        create_package: "ON"
     # - name: move static lib to main folder
     #   run: mv build/libPhylolib.a libPhylolib.a
 
