@@ -56,7 +56,7 @@ jobs:
       with:
         tag_name: ${{ steps.generate_release_tag.outputs.release_tag }}
         name: Release ${{ steps.generate_release_tag.outputs.release_tag }}
-        files: phylolib_${{ matrix.os }}.tar.gz
+        files: ./phylolib_${{ matrix.os }}.tar.gz
 
     # - name: Create Release
     #   id: create_release
