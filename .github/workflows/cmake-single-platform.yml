@@ -44,4 +44,4 @@ jobs:
       with:
         tag_name: ${{ needs.release_tag.outputs.date_tag }}
         name: Release ${{ needs.release_tag.outputs.date_tag }}
-        files: build/*.tar.gz
+        files: build/*.zip
