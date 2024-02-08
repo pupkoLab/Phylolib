@@ -21,8 +21,11 @@ jobs:
       uses: alexvingg/next-release-tag@v1.0.4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+    outputs:
+      date_tag: steps.generate_release_tag.outputs.release_tag
 
   build:
+    needs: release_tag
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -62,8 +65,8 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v${{ jobs.steps.release_tag.generate_release_tag.outputs.release_tag }}
-        name: Release v${{ jobs.steps.release_tag.generate_release_tag.outputs.release_tag }}
+        tag_name: v${{ needs.release_tag.outputs.date_tag }}
+        name: Release v${{ needs.release_tag.outputs.date_tag }}
         files: build/*.tar.gz
 
     # - name: Create Release
