@@ -28,64 +28,20 @@ jobs:
     needs: release_tag
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [macos-latest, ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v3
 
-    # - name: Setup cmake
-    #   uses: lukka/get-cmake@latest
-
     - name: Build project
       uses: nicledomaS/cmake_build_action@v1.4
       with:
         create_package: "ON"
-    # - name: move static lib to main folder
-    #   run: mv build/libPhylolib.a libPhylolib.a
-
-
-    # - name: Build project
-    #   run: tar -czf libPhylolib.tar.gz includes libPhylolib.a
-
-
-
-    # - name: Generate release tag
-    #   id: generate_release_tag
-    #   uses: alexvingg/next-release-tag@v1.0.4
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-
-    # - name: Upload Artifact
-    #   uses: actions/upload-artifact@v4
-    #   with:
-    #     path: build/*.tar.gz
-    #     name: phylolib_${{ matrix.os }}_${{ steps.generate_release_tag.outputs.release_tag }}
 
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v${{ needs.release_tag.outputs.date_tag }}
-        name: Release v${{ needs.release_tag.outputs.date_tag }}
+        tag_name: ${{ needs.release_tag.outputs.date_tag }}
+        name: Release ${{ needs.release_tag.outputs.date_tag }}
         files: build/*.tar.gz
-
-    # - name: Create Release
-    #   id: create_release
-    #   uses: actions/create-release@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     tag_name: ${{ steps.generate_release_tag.outputs.release_tag }}
-    #     release_name: Release ${{ steps.generate_release_tag.outputs.release_tag }}
-    #     prerelease: true
-
-    # - name: Upload Release Asset
-    #   id: upload-release-asset 
-    #   uses: actions/upload-release-asset@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-    #     asset_path: ./artifact_${{ matrix.os }}.tar.gz
-    #     asset_name: phylolib_${{ matrix.os }}_${{ steps.generate_release_tag.outputs.release_tag }}.tar.gz
-    #     asset_content_type: application/zip
