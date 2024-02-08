@@ -13,6 +13,15 @@ env:
   BUILD_TYPE: Release
 
 jobs:
+  release_tag:
+    runs-on: [ubuntu-latest]
+    steps:
+    - name: Generate release tag
+      id: generate_release_tag
+      uses: alexvingg/next-release-tag@v1.0.4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
   build:
     strategy:
       matrix:
@@ -49,14 +58,12 @@ jobs:
     #   with:
     #     path: build/*.tar.gz
     #     name: phylolib_${{ matrix.os }}_${{ steps.generate_release_tag.outputs.release_tag }}
-    - name: Put current date into a variable
-      run: echo "NOW=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: v${{env.NOW}}
-        name: Release v${{env.NOW}}
+        tag_name: v${{ jobs.steps.release_tag.generate_release_tag.outputs.release_tag }}
+        name: Release v${{ jobs.steps.release_tag.generate_release_tag.outputs.release_tag }}
         files: build/*.tar.gz
 
     # - name: Create Release
