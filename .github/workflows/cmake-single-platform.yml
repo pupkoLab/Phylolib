@@ -49,13 +49,16 @@ jobs:
     #   with:
     #     path: build/*.tar.gz
     #     name: phylolib_${{ matrix.os }}_${{ steps.generate_release_tag.outputs.release_tag }}
-  
+    - name: Put current date into a variable
+    run: |
+      $NOW=& Get-Date -format yyyy-MM-dd
+      echo "NOW=$NOW" >> $env:GITHUB_ENV
 
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: 1
-        name: Release 1
+        tag_name: v${{env.NOW}}
+        name: Release v${{env.NOW}}
         files: build/*.tar.gz
 
     # - name: Create Release
