@@ -50,7 +50,7 @@ jobs:
     #     path: build/*.tar.gz
     #     name: phylolib_${{ matrix.os }}_${{ steps.generate_release_tag.outputs.release_tag }}
     - name: Put current date into a variable
-        run: echo "NOW=$(date +'%Y%m%d')" >> $GITHUB_ENV
+      run: echo "NOW=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
     - name: Release
       uses: softprops/action-gh-release@v1
