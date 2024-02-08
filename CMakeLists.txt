@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(Phylolib)
+project(Phylolib VERSION 24.2)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set (CMAKE_CXX_STANDARD 14)
@@ -123,7 +123,3 @@ install (TARGETS Phylolib
     PUBLIC_HEADER DESTINATION build/includes)
 
 include(CPack)
-set(CPACK_PACKAGE_VERSION "1.0.0")
-set(CPACK_PACKAGE_VERSION_MAJOR "1")
-set(CPACK_PACKAGE_VERSION_MINOR "0")
-set(CPACK_PACKAGE_VERSION_PATCH "0")
