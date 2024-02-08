@@ -22,7 +22,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
     outputs:
-      date_tag: steps.generate_release_tag.outputs.release_tag
+      date_tag: ${{ steps.generate_release_tag.outputs.release_tag }}
 
   build:
     needs: release_tag
