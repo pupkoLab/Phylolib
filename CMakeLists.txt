@@ -76,7 +76,6 @@ add_library(Phylolib STATIC
     src/logFile.cpp
     src/maseFormat.cpp
     src/matrixUtils.cpp
-    src/modelFactory.cpp
     src/molphyFormat.cpp
     src/mulAlphabet.cpp
     src/multipleStochasticProcess.cpp
@@ -90,7 +89,6 @@ add_library(Phylolib STATIC
     src/phylipFormat.cpp
     src/phylipSequentialFormat.cpp
     src/pijAccelerator.cpp
-    src/rateMatrixSim.cpp
     src/readDatMatrix.cpp
     src/readTree.cpp
     src/recognizeFormat.cpp
