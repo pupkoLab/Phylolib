@@ -10,7 +10,7 @@ using namespace std;
 int main(){
 
 
-    tree tr = tree("/home/elyawy/Data/yeast/RAxML_tree.tree"); // read a tree from a newick formatted file.
+    tree tr = tree("/home/elyalab/Dev/projects/Sailfish-backend/libs/Phylolib/tests/likelihood/simple.tree", true); // read a tree from a newick formatted file.
 
     
     vector<tree::nodeP> vec;

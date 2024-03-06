@@ -8,7 +8,7 @@ using namespace std;
 
 #define REMARK ';'
 #define MAX_LENGTH_OF_NAME 20
-#define MAX_FILE_SIZE 1000000
+#define MAX_FILE_SIZE INT64_MAX
 #define FATHER 0
 #define LEFT 1
 #define RIGHT 2
@@ -30,6 +30,7 @@ int GetNumberOfLeaves(const vector<char>& tree_contents);
 int GetNumberOfInternalNodes(const vector<char>& tree_contents);
 bool IsAtomicPart(const vector<char>::const_iterator p_itCurrent);
 vector<char> PutTreeFileIntoVector(istream &in);
+vector<char> PutTreeStringIntoVector(const std::string& treestr);
 
 MDOUBLE getDistance(vector<char>::const_iterator &p_itCurrent);
 bool DistanceExists(vector<char>::const_iterator& p_itCurrent); 

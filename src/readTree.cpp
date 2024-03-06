@@ -62,7 +62,32 @@ vector<char> PutTreeFileIntoVector(istream &in) {
 	return tree_contents;
 }
 
+vector<char> PutTreeStringIntoVector(const std::string& treestr) {
+	vector<char> tree_contents;
+	bool endWithDotComa = false;
+	char chTemp;
 
+	for(const char& chTemp : treestr) {
+#ifdef WIN32
+	if (chTemp == -52) return tree_contents; //tal addition.
+#endif
+		if ( !isspace( chTemp ) )
+			tree_contents.push_back(chTemp);
+		if (chTemp == ';') {
+			endWithDotComa = true;
+			break;
+		}
+	}
+
+
+	if (tree_contents.size() >= MAX_FILE_SIZE) {
+		vector<string> err;
+		err.push_back("Error reading tree file. The tree file is too large");
+		errorMsg::reportError(err,1); // also quit the program
+	}
+	if (endWithDotComa == false) tree_contents.clear(); // remove junk from the last ; till the end of the file.
+	return tree_contents;
+}
 
 
 int GetNumberOfLeaves(const vector<char> &tree_contents) {

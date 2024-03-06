@@ -192,6 +192,39 @@ tree::tree(const string& treeFileName) {
 	errorMsg::reportError(string("Unable to read tree from the file ")+treeFileName,1);
 }
 
+// allow string and file inputs
+tree::tree(const string& treeStrOrFileName, bool isFile) {
+	if (isFile) {
+		ifstream in;
+		istream* inPtr = &cin;		// default
+		if (treeStrOrFileName != "-"){
+		in.open(treeStrOrFileName.c_str());
+		if (! in.is_open())
+			errorMsg::reportError(string("Error - unable to open tree file ")+treeStrOrFileName,1);
+		inPtr = &in;
+		}
+		if (readPhylipTreeTopology(*inPtr)) {
+		if (in.is_open())
+			in.close();
+			create_names_to_internal_nodes();		
+			makeSureAllBranchesArePositive();
+			setNumLeavesUnderAllNode(_root);
+			return;
+		}
+		if (in.is_open())
+		in.close();
+		errorMsg::reportError(string("Unable to read tree from the file ")+treeStrOrFileName,1);
+	} else {
+		vector<char> tree_contents = PutTreeStringIntoVector(treeStrOrFileName);
+		readPhylipTreeTopology(tree_contents);
+		create_names_to_internal_nodes();
+		makeSureAllBranchesArePositive();
+		setNumLeavesUnderAllNode(_root);
+	}
+	return;
+}
+
+
 tree::tree(istream &in) {
 	if (readPhylipTreeTopology(in)) {
 		create_names_to_internal_nodes();

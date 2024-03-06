@@ -101,7 +101,7 @@ public:
 	tree(const string& treeFileName); 
 	tree(istream &treeFile);
 	tree(const vector<char>& tree_contents);
-
+	tree(const string& treeFileName, bool isFile);
 	tree(const string& treeFileName,vector<char>& isFixed); 
 	tree(const vector<char>& tree_contents, vector<char>& isFixed);
 	tree(istream &in, vector<char>& isFixed);
