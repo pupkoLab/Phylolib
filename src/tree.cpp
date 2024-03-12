@@ -444,6 +444,7 @@ void tree::getAllHTUs(vector<nodeP> &vec, const nodeP fromHereDown ) const {
 
 
 void tree::getAllNodes(vector<nodeP> &vec, const nodeP fromHereDown ) const {
+	if (fromHereDown == NULL) return;
 	vec.clear();
 	vec.push_back(fromHereDown);
 
