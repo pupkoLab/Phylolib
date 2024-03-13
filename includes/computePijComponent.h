@@ -3,17 +3,21 @@
 #ifndef ___COMPUTE_PIJ_COMPONENT
 #define ___COMPUTE_PIJ_COMPONENT
 
+#include <memory>
+
 #include "definitions.h"
 #include "tree.h"
 #include "stochasticProcess.h"
 #include "multipleStochasticProcess.h"
 #include "gammaDistribution.h"
-
+#include "DiscreteDistribution.h"
 
 class computePijHomSpec {//specific node, no rate variation
 public:
 	virtual ~computePijHomSpec(){};
 	void fillPij(const MDOUBLE dis, const stochasticProcess& sp, int derivationOrder = 0, bool isReversible =true);
+	void fillDistributions();
+
 	void resize(const int alphabetSize) {
 		_V.resize(alphabetSize);
 		for (int z=0;z<alphabetSize;++z) _V[z].resize(alphabetSize);
@@ -23,7 +27,21 @@ public:
 	MDOUBLE getPij(const int let1,const int let2)const{
 		return _V[let1][let2];
 	}
+
+	void setSeed(int seed) {
+		_seed = seed;
+		for (auto dist: _D) {
+			dist->setSeed(seed);
+		}
+	}
+
+
+	int getRandomChar(const int originLetter) const {
+		return _D[originLetter]->drawSample() - 1;
+	}
 	VVdouble _V; // let, let
+	std::vector<std::shared_ptr<DiscreteDistribution>> _D;
+	int _seed;
 };
 
 class computePijHom {//all nodes, no rate variation
@@ -35,6 +53,17 @@ public:
 	MDOUBLE getPij(const int nodeId,const int let1,const int let2)const{
 		return _V[nodeId].getPij(let1,let2);
 	}
+
+	int getRandomChar(const int nodeId, const int originLetter) const {
+		return _V[nodeId].getRandomChar(originLetter);
+	}
+
+	void setSeed(int seed) {
+		for(auto v: _V) {
+			v.setSeed(seed);
+		}
+	}
+
 	vector<computePijHomSpec> _V; // let, let
 };
 
@@ -48,6 +77,16 @@ public:
 
 	MDOUBLE getPij(const int rateCategor,const int nodeId,const int let1,const int let2)const{
 		return _V[rateCategor].getPij(nodeId,let1,let2);
+	}
+
+	void setSeed(int seed) {
+		for(auto v: _V) {
+			v.setSeed(seed);
+		}
+	}
+
+	int getRandomChar(const int rateCategor,const int nodeId, const int originLetter) const {
+		return _V[rateCategor].getRandomChar(nodeId,originLetter);
 	}
 	computePijHom& operator[] (int i) {return _V[i];}
 	const computePijHom& operator[] (int i) const {return _V[i];}
