@@ -18,22 +18,22 @@ void computePijHomSpec::fillPij(
     resize(sp.alphabetSize());
     size_t i;
     for (i=0; i<sp.alphabetSize(); i++) {
-	switch (derivationOrder) {
-	case 0:
-	  _V[i][i] = sp.Pij_t(i,i,dis);
-	 // if (_V[i][i] > 1 || _V[i][i] < 0) {
-	//	  errorMsg::reportError("error in function computePijHomSpec::fillPij", 1);
-	 // }
-	  break;
-	case 1:
-	  _V[i][i] = sp.dPij_dt(i,i,dis);
-	  break;
-	case 2:
-	  _V[i][i] = sp.d2Pij_dt2(i,i,dis);
-	  break;
-	default:
-	  errorMsg::reportError("error in function fillPij - derivationOrder must be 0, 1 or 2");		
-	}
+		switch (derivationOrder) {
+			case 0:
+				_V[i][i] = sp.Pij_t(i,i,dis);
+				// if (_V[i][i] > 1 || _V[i][i] < 0) {
+				//	  errorMsg::reportError("error in function computePijHomSpec::fillPij", 1);
+				// }
+				break;
+			case 1:
+				_V[i][i] = sp.dPij_dt(i,i,dis);
+				break;
+			case 2:
+				_V[i][i] = sp.d2Pij_dt2(i,i,dis);
+				break;
+			default:
+				errorMsg::reportError("error in function fillPij - derivationOrder must be 0, 1 or 2");		
+		}
 
 	size_t j;
 	  
@@ -92,8 +92,22 @@ void computePijHomSpec::fillPij(
 //	  }
 	}
     }
+	fillDistributions();
 }
 
+void computePijHomSpec::fillDistributions() {
+
+	_D.resize(_V.size());
+
+	for (size_t i = 0; i < _V.size(); i++) {
+		// std::cout << "row " << i << "\n";
+		// for(auto p: _V[i]) {
+		// 	std::cout << p << " ";
+		// }
+		// std::cout << "\n";
+		_D[i] = std::make_shared<DiscreteDistribution>(_V[i]);
+	}
+}
 
 void computePijHom::fillPij(const tree& et, const stochasticProcess& sp, int derivationOrder, bool isReversible) {
 	_V.resize(et.getNodesNum());
