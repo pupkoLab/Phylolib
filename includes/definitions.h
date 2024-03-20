@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <limits>
+#include <algorithm>
 using namespace std;
 
 // Sometimes you want to change all the double variables in your program to floats during compilation.

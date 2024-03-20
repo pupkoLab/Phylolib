@@ -8,7 +8,6 @@
 #include "errorMsg.h"
 #include "logFile.h"
 
-
 //***********************************************************************************
 // class tree represents only the topology. It has no MSA and assumes no model of evolution.
 //***********************************************************************************
@@ -44,6 +43,11 @@ public:
 
 		TreeNode* getSon (int i) {return _sons[i];}
         std::vector<TreeNode*> getSons () {return _sons;}
+        void orderSonsByHeight () {
+			auto comp = [](TreeNode* x, TreeNode* y){ return x->getHeight() < y->getHeight(); };
+			std::sort(_sons.begin(), _sons.end(), comp);
+		}
+
 
 		TreeNode* getLastSon () {return _sons.back();}
 		void removeLastSon() {_sons.pop_back();}
