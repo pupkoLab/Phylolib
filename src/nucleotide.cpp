@@ -14,22 +14,22 @@ nucleotide::nucleotide() {
 	}
 }
 
-size_t nucleotide::fromChar(const string& str, const size_t pos) const {
+ALPHACHAR nucleotide::fromChar(const string& str, const size_t pos) const {
 	return fromChar(str[pos]);
 }
 
-vector<size_t> nucleotide::fromString(const string &str) const {
-	vector<size_t> vec;
+vector<ALPHACHAR> nucleotide::fromString(const string &str) const {
+	vector<ALPHACHAR> vec;
 	for (size_t i=0;i<str.size();i++)
 	  vec.push_back(fromChar(str[i]));
 	return vec;
 }
 
-size_t nucleotide::fromChar(const char s) const {
+ALPHACHAR nucleotide::fromChar(const char s) const {
 	switch (s) {
 		case 'A' : case'a' : return 0 ; break;//	A = adenine
 		case 'C' : case'c' : return 1 ; break;//	C = cytosine
-		case 'G' : case'g' : return 2 ; break;//	G = guanine
+		case 'G' : case'g' : return 2 ; break; //	G = guanine
 		case 'T' : case't' : return 3 ; break;//	T = thymine
 		case 'U' : case'u' : return 4 ; break; //	U = uracil
 		case 'R' : case'r' : return 5 ; break;//	R = purine	(same as [GA])
@@ -59,14 +59,14 @@ size_t nucleotide::fromChar(const char s) const {
 	return 99;
 }
 
-string nucleotide::fromInt(const size_t id) const {
+string nucleotide::fromInt(const ALPHACHAR id) const {
 	char x= fromIntInternal(id);
 	string res;
 	res.append(1,x);
 	return res;
 }
 
-char nucleotide::fromIntInternal(const int in_id)  const {
+unsigned char nucleotide::fromIntInternal(const ALPHACHAR in_id)  const {
 	switch (in_id) {
 		case 0 : return 'A'  ; break;
 		case 1 : return 'C'  ; break;
@@ -95,7 +95,7 @@ char nucleotide::fromIntInternal(const int in_id)  const {
 	return '!' ;		// for the lousy compiler
 }
 
-int nucleotide::relationsInternal(const int ctc,const int charInSeq
+ALPHACHAR nucleotide::relationsInternal(const ALPHACHAR ctc,const ALPHACHAR charInSeq
 					   ) const{ //ctc=charToCheck
   switch (charInSeq){
     case 0 : if (ctc==0) return 1 ; break;//	A = adenine

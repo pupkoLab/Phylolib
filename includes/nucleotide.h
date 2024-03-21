@@ -41,17 +41,17 @@ public:
 	explicit nucleotide();
 	virtual ~nucleotide() {}
     virtual alphabet* clone() const { return new nucleotide(*this); }
-	size_t unknown() const  {return 15;}
-	size_t gap() const  {return 16;}
-	size_t size() const {return 4;}
+	ALPHACHAR unknown() const  {return 15;}
+	ALPHACHAR gap() const  {return 16;}
+	ALPHACHAR size() const {return 4;}
 	size_t stringSize() const {return 1;} // one letter code.
 
-	size_t fromChar(const string& str, const size_t pos) const;
-	size_t fromChar(const char s) const;
-	vector<size_t> fromString(const string& str) const;
+	ALPHACHAR fromChar(const string& str, const size_t pos) const;
+	ALPHACHAR fromChar(const char s) const;
+	vector<ALPHACHAR> fromString(const string& str) const;
 
-	string fromInt(const size_t id) const;
-	size_t relations(const size_t charInSeq, const size_t charToCheck) const{ // see explanation below
+	string fromInt(const ALPHACHAR id) const;
+	ALPHACHAR relations(const ALPHACHAR charInSeq, const ALPHACHAR charToCheck) const{ // see explanation below
 		assert (charInSeq != gap());//gaps in the sequences
 	  	return _relation[charToCheck][charInSeq];
 	}
@@ -59,12 +59,12 @@ public:
 	// "specific" here is not unknown, nor ambiguity, nor gap (for example, for nucleotides it will true for A,C,G, or T).
 	// in this speical case, in fact it will be true also for U which is coded by 4.
 	// this is why it is <= size.
-	bool isSpecific(const size_t id) const {return (id>=0 && id <= size());}
+	bool isSpecific(const ALPHACHAR id) const {return (id>=0 && id <= size());}
 
 private:
-	VVint _relation;
-	char fromIntInternal(const int in_id)  const;
-	int relationsInternal(const int ctc,const int charInSeq) const;
+	std::vector<std::vector<ALPHACHAR>> _relation;
+	unsigned char fromIntInternal(const ALPHACHAR in_id)  const;
+	ALPHACHAR relationsInternal(const ALPHACHAR ctc,const ALPHACHAR charInSeq) const;
 
 };
 
