@@ -18,6 +18,9 @@ public:
 	virtual gtrModel& operator=(const gtrModel &other);
 	explicit gtrModel(const gtrModel &other);
 	const size_t alphabetSize() const {return _freq.size();}
+
+	const MDOUBLE Qij(const int i,const int j) const { return _Q[i][j] ;}
+
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const {return _q2pt.Pij_t(i,j,d);}
 	const MDOUBLE dPij_dt(const int i,const int j, const MDOUBLE d) const{return _q2pt.dPij_dt(i,j,d);}
 	const MDOUBLE d2Pij_dt2(const int i,const int j, const MDOUBLE d) const{return _q2pt.d2Pij_dt2(i,j,d);}

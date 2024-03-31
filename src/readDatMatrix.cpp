@@ -119,7 +119,8 @@ void pupAll::fillMatricesFromFile(const string & dataFileString) {
 	readDatMatrixFromFile(dataFileString,sMatrix,_freq);
 	//	readDatMatrixFromString(dataFileString,sMatrix,_freq);
 	VVdouble qMatrix = fromWagSandFreqToQ(sMatrix,_freq);
-	
+	_Q = qMatrix;
+
 	q2pt q2pt1;
 	q2pt1.fillFromRateMatrix(_freq,qMatrix);
 	_leftEigen = q2pt1.getLeftEigen();
@@ -135,7 +136,8 @@ void pupAll::fillMatricesFromFile(const string & dataFileString, const Vdouble &
 	readDatMatrixFromFile(dataFileString,sMatrix,_freq);
 	_freq=freq;
 	VVdouble qMatrix = fromWagSandFreqToQ(sMatrix,_freq);
-	
+	_Q = qMatrix;
+
 	q2pt q2pt1;
 	q2pt1.fillFromRateMatrix(_freq,qMatrix);
 	_leftEigen = q2pt1.getLeftEigen();
@@ -148,7 +150,8 @@ void pupAll::fillMatrices(const string & dataFileString,int alphaSize) {
 	readDatMatrixFromString(dataFileString,sMatrix,_freq,alphaSize);
 	//	readDatMatrixFromString(dataFileString,sMatrix,_freq);
 	VVdouble qMatrix = fromWagSandFreqToQ(sMatrix,_freq);
-	
+	_Q = qMatrix;
+
 	q2pt q2pt1;
 	q2pt1.fillFromRateMatrix(_freq,qMatrix);
 	_leftEigen = q2pt1.getLeftEigen();
@@ -160,7 +163,8 @@ void pupAll::fillMatrices(const string & dataFileString, const Vdouble & freq) {
 	readDatMatrixFromString(dataFileString,sMatrix,_freq);
 	_freq=freq;
 	VVdouble qMatrix = fromWagSandFreqToQ(sMatrix,_freq);
-	
+	_Q = qMatrix;
+
 	q2pt q2pt1;
 	q2pt1.fillFromRateMatrix(_freq,qMatrix);
 	_leftEigen = q2pt1.getLeftEigen();

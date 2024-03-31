@@ -23,6 +23,12 @@ public:
 	const size_t alphabetSize() const {return 20;}
 
 	explicit aaJC(){};
+
+	const MDOUBLE Qij(const int i,const int j) const {
+		return (i==j) ? aaDef::om_odAl : aaDef::odAl; // check with Tal...
+	};
+
+
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const {
 //(wrong!)		return ((i==j) ?  0.05+0.95*exp(-20.0*d): 0.05-0.05*exp(-20.0*d));
 		return ((i==j) ?  aaDef::odAl+aaDef::om_odAl*exp(aaDef::m_alDiv_omalp*d): aaDef::odAl-aaDef::odAl*exp(aaDef::m_alDiv_omalp*d));

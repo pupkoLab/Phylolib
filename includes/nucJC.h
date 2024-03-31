@@ -21,6 +21,11 @@ public:
 	virtual replacementModel* clone() const { return new nucJC(*this); }
 
 	explicit nucJC(){};
+
+	const MDOUBLE Qij(const int i,const int j) const {
+		return (i==j) ? nucDef::om_odAl : nucDef::odAl; // check with Tal...
+	};
+
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const {
 //		return ((i==j) ?  0.25+0.75*exp(-4.0/3.0*d): 0.25-0.25*exp(-4.0/3.0*d));
 		return ((i==j) ?  nucDef::odAl+nucDef::om_odAl*exp(nucDef::m_alDiv_omalp*d): nucDef::odAl-nucDef::odAl*exp(nucDef::m_alDiv_omalp*d));

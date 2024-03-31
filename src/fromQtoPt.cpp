@@ -21,6 +21,8 @@ void q2pt::fillFromRateMatrix(const vector<MDOUBLE>& freq,
 	   // F is a diagonal matrix of the frequencies
 	   // M is the symetrical matrix representation of Q.
 	
+	_Q = qMatrix;
+
 	VVdouble q_sym;
 	const int matrix_size = qMatrix.size();
 	q_sym.resize(matrix_size);

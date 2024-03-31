@@ -47,6 +47,12 @@ MDOUBLE hky::getTrTv() const {
 	return (_a/(2.0*_b));
 }
 
+
+const MDOUBLE hky::Qij(const int i,const int j) const {
+	// implement
+}
+
+
 const MDOUBLE hky::Pij_t(const int i, const int j, const MDOUBLE t) const {
 	const MDOUBLE &pa = _freq[0];
 	const MDOUBLE &pc = _freq[1];
