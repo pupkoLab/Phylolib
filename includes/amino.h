@@ -7,16 +7,16 @@
 #include "errorMsg.h"
 #include "alphabet.h"
 #include "geneticCodeHolder.h"
-// #include "codon.h"
+#include "codon.h"
 
 
 //utility of amino acid
-// class aminoUtility {
-// public:
+class aminoUtility {
+public:
 
-// 	static vector<int> codonOf(const int a, codon &cod); //returns vector of codons that code to a under a specific genetic code.
+	static vector<ALPHACHAR> codonOf(const ALPHACHAR a, codon &cod); //returns vector of codons that code to a under a specific genetic code.
 	
-// };
+};
 
 //based on the amino-acid list found in http://www.dur.ac.uk/~dbl0www/Bioinformatics/aminoacids.htm
 class amino : public alphabet {

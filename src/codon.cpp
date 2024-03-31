@@ -95,7 +95,7 @@ codon& codon::operator=(const codon& other) {
 
 
 //return -99 if not succeeds.
-size_t codon::fromChar(const string& s, const size_t pos) const {
+ALPHACHAR codon::fromChar(const string& s, const size_t pos) const {
 	if (s.size() <= pos+2) {
 		//errorMsg::reportError("Trying to read a codon pass the end of the string. The number of nucleotide may not be divisible by three");
 		string textToPrint("Trying to read a codon pass the end of the string. The number of nucleotide may not be divisible by three");
@@ -135,8 +135,8 @@ size_t codon::fromChar(const string& s, const size_t pos) const {
 	return tmpMap[strCodon];
 }
 
-vector<size_t> codon::fromString(const string &str) const {
-	vector<size_t> vec;
+vector<ALPHACHAR> codon::fromString(const string &str) const {
+	vector<ALPHACHAR> vec;
 	if (str.size()%3!=0) {
 		errorMsg::reportError("error in function codon::fromString. String length should be a multiplication of 3");
 	}
@@ -145,7 +145,7 @@ vector<size_t> codon::fromString(const string &str) const {
 	return vec;
 }
 
-string codon::fromInt(const size_t in_id)  const{
+string codon::fromInt(const ALPHACHAR in_id)  const{
 	if (in_id == unknown())
 		return "XXX";
 	if (in_id == gap()) 
@@ -496,13 +496,13 @@ MDOUBLE codonUtility::calcCodonAdaptationIndex(const sequenceContainer& sc, cons
 	amino am;
 	//1. calculate Wk = the frequency of codon k relative to the frequency of the optimal codon for that amino acid.
 	Vdouble Wk(codonUsage.size(), 0.0);
-	int aaId;
+	ALPHACHAR aaId;
 	for (aaId = 0; aaId < am.size(); ++aaId)
 	{
-		Vint codonsOfAa = aminoUtility::codonOf(aaId, alph);
+		std::vector<ALPHACHAR> codonsOfAa = aminoUtility::codonOf(aaId, alph);
 		//finding the most frequent codon for this aa
 		MDOUBLE mostFrequent = 0.0;
-		Vint::const_iterator iter;
+		std::vector<ALPHACHAR>::const_iterator iter;
 		for (iter = codonsOfAa.begin(); iter != codonsOfAa.end(); ++iter)
 		{
 			if (codonUsage[*iter] > mostFrequent)

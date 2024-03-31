@@ -29,14 +29,14 @@ size_t gainLossAlphabet::fromChar(const char s) const{
 	return -99; // never suppose to be here.	
 }// end of function
 
-vector<size_t> gainLossAlphabet::fromString(const string &str) const {
-	vector<size_t> vec;
+vector<ALPHACHAR> gainLossAlphabet::fromString(const string &str) const {
+	vector<ALPHACHAR> vec;
 	for (unsigned int i=0;i<str.size();i++)
 		vec.push_back(fromChar(str[i]));
 	return vec;
 }
 
-string gainLossAlphabet::fromInt(const size_t in_id) const{
+string gainLossAlphabet::fromInt(const ALPHACHAR in_id) const{
 	char res = 0;
 	switch (in_id) {
 		case 0 : res = '0'  ; break;
@@ -54,7 +54,7 @@ string gainLossAlphabet::fromInt(const size_t in_id) const{
 }// end of function
 
 // There are no relations here.
-size_t gainLossAlphabet::relations(const size_t charInSeq, const size_t charToCheck) const{
+ALPHACHAR gainLossAlphabet::relations(const ALPHACHAR charInSeq, const ALPHACHAR charToCheck) const{
 	if (charInSeq == charToCheck)
 		return 1;
 	if(charInSeq == -1 || charInSeq == -2) 
@@ -62,7 +62,7 @@ size_t gainLossAlphabet::relations(const size_t charInSeq, const size_t charToCh
 	return 0;
 }
 
-size_t gainLossAlphabet::fromChar(const string& str, const size_t pos) const{
+ALPHACHAR gainLossAlphabet::fromChar(const string& str, const size_t pos) const{
 	return fromChar(str[pos]);
 }
 

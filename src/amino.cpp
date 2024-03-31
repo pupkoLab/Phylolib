@@ -128,25 +128,25 @@ ALPHACHAR amino::relations_internal(const ALPHACHAR charInSeq, const ALPHACHAR c
 }
 
 
-// vector<ALPHACHAR> aminoUtility::codonOf(const ALPHACHAR a, codon &cod){
-// 	vector<ALPHACHAR> codons;
-// 	amino amin;
-// 	string strAmino=amin.fromInt(a);
-// 	map <string, string> genCode=cod.geneticCode();
-// 	map <string, string>::iterator it=genCode.begin();
-// 	int tmp2=genCode.size();
-// 	while (it!=genCode.end()){
-// 		string tmp=(*it).second;
-// 		if ((*it).second==strAmino){
-// 			string strCodon=(*it).first;
-// 			int c=cod.fromChar(strCodon,0);
-// 			codons.push_back(c);		
-// 		}
-// 		it++;
-// 	}
-// 	if (codons.empty()){
-// 		cout<<tmp2<<" amino is  = "<<a<<endl;
-// 		errorMsg::reportError("error in function aminoUtility::codonOf: no codon found for amino acid");
-// 	}
-// 	return codons;
-// }
+vector<ALPHACHAR> aminoUtility::codonOf(const ALPHACHAR a, codon &cod){
+	vector<ALPHACHAR> codons;
+	amino amin;
+	string strAmino=amin.fromInt(a);
+	map <string, string> genCode=cod.geneticCode();
+	map <string, string>::iterator it=genCode.begin();
+	int tmp2=genCode.size();
+	while (it!=genCode.end()){
+		string tmp=(*it).second;
+		if ((*it).second==strAmino){
+			string strCodon=(*it).first;
+			int c=cod.fromChar(strCodon,0);
+			codons.push_back(c);		
+		}
+		it++;
+	}
+	if (codons.empty()){
+		cout<<tmp2<<" amino is  = "<<a<<endl;
+		errorMsg::reportError("error in function aminoUtility::codonOf: no codon found for amino acid");
+	}
+	return codons;
+}
