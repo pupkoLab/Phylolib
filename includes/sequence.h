@@ -46,7 +46,7 @@ public:
 
 	void addFromString(const string& str);
 	//push_back: add a single characer to the sequence
-	void push_back(int p) {_vec.push_back(p);}
+	void push_back(ALPHACHAR p) {_vec.push_back(p);}
 	void resize(const int k, const int* val = NULL);
 	void removePositions(const vector<int> & parCol);
 
@@ -57,8 +57,8 @@ public:
 
 	inline sequence& operator=(const sequence& other);
 	inline sequence& operator+=(const sequence& other);
-	int& operator[](const int i) {return _vec[i];}
-	const int& operator[](const int pos) const {return _vec[pos];}
+	ALPHACHAR& operator[](const int i) {return _vec[i];}
+	const ALPHACHAR& operator[](const int pos) const {return _vec[pos];}
 
 	bool isUnknown(const int pos) const {return _vec[pos] == _alphabet->unknown();}
 	
@@ -66,7 +66,7 @@ public:
 	bool isSpecific(const size_t pos) const {return _alphabet->isSpecific(_vec[pos]);}
 
 private: 
-	vector<int> _vec;	
+	vector<ALPHACHAR> _vec;	
 	const alphabet* _alphabet;
 	string _remark;
 	string _name;
@@ -80,14 +80,14 @@ public:
 		~Iterator(){};
 		void begin(sequence& seq){_pointer = seq._vec.begin();}
 		void end(sequence& seq){_pointer = seq._vec.end();}
-		int& operator* (){return *_pointer;}
-		int const &operator* () const {return *_pointer;}
+		ALPHACHAR& operator* (){return *_pointer;}
+		ALPHACHAR const &operator* () const {return *_pointer;}
 		void operator ++() {++_pointer;}
 		void operator --() { --_pointer; }
 		bool operator != (const Iterator& rhs){return (_pointer != rhs._pointer);}
 		bool operator == (const Iterator& rhs){return (_pointer == rhs._pointer);}
 	private:
-		vector<int>::iterator _pointer;
+		vector<ALPHACHAR>::iterator _pointer;
   };
 
 	class constIterator {
@@ -96,7 +96,7 @@ public:
 		~constIterator(){};
 		void begin(const sequence& seq){_pointer = seq._vec.begin();}
 		void end(const sequence& seq){_pointer = seq._vec.end();}
-		int const &operator* () const {return *_pointer;}
+		ALPHACHAR const &operator* () const {return *_pointer;}
 		void operator ++(){++_pointer;}
 		void operator --(){--_pointer;}
 		bool operator != (const constIterator& rhs) {
@@ -106,7 +106,7 @@ public:
 		  return (_pointer == rhs._pointer);
 		}
 	private:
-		vector<int>::const_iterator _pointer;
+		vector<ALPHACHAR>::const_iterator _pointer;
 	};
 
 
@@ -137,4 +137,3 @@ inline ostream & operator<<(ostream & out, const sequence &Seq){
 
 
 #endif
-

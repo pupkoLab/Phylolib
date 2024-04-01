@@ -173,7 +173,7 @@ void sequence::removePositions(const vector<int> & posToRemoveVec)
 		if (posToRemoveVec[k] == 1) 
 			_vec[k] = -1000;
 	}
-	vector<int>::iterator vec_iter;
+	vector<ALPHACHAR>::iterator vec_iter;
 	vec_iter =  remove_if(_vec.begin(),_vec.end(),particip());
 	_vec.erase(vec_iter,_vec.end()); // pg 1170, primer.
 }
