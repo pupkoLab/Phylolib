@@ -15,6 +15,9 @@ public:
 									const int usingNumberOfCoef=13,
 	const MDOUBLE rightRange=0,const MDOUBLE leftRange=2);
   chebyshevAccelerator(const chebyshevAccelerator& other);
+
+	const MDOUBLE Qij(const int i,const int j) const {return _pb->Qij(i,j);}
+
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const;
 	const MDOUBLE dPij_dt(const int i,const int j, const MDOUBLE d) const;
 	const MDOUBLE d2Pij_dt2(const int i,const int j, const MDOUBLE d) const;
