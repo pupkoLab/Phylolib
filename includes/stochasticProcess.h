@@ -22,7 +22,9 @@ public:
 	virtual const MDOUBLE rates(const size_t i) const {return _distr->rates(i);}
 	virtual const MDOUBLE ratesProb(const size_t i) const {return _distr->ratesProb(i);}
 
-	
+
+	virtual const MDOUBLE Qij(const int i, const int j) const {return _pijAccelerator->Qij(i,j); }
+
 	virtual const MDOUBLE Pij_t(const int i, const int j, const MDOUBLE t) const {
 		if (t!=0) return _pijAccelerator->Pij_t(i,j,t);
 		return (i==j)? 1 : 0;

@@ -35,12 +35,12 @@ mulAlphabet& mulAlphabet::operator=(const mulAlphabet &other)
 	return (*this);
 }
 
-size_t mulAlphabet::unknown() const
+ALPHACHAR mulAlphabet::unknown() const
 {
 	return (convertFromBasedAlphaInt(_baseAlphabet->unknown()));
 }
 
-size_t mulAlphabet::gap() const
+ALPHACHAR mulAlphabet::gap() const
 {
 		return (convertFromBasedAlphaInt(_baseAlphabet->gap()));
 }
@@ -50,7 +50,7 @@ size_t mulAlphabet::stringSize() const
 	return _baseAlphabet->stringSize();
 }
 
-bool mulAlphabet::isSpecific(const size_t id) const
+bool mulAlphabet::isSpecific(const ALPHACHAR id) const
 {
 	if (id >= _size)
 		return false;
@@ -87,7 +87,7 @@ For example, when using nucleotides as the based alphabet and _mulFactor = 2 :
 -1	-
 */
 
-string mulAlphabet::fromInt(const size_t id) const
+string mulAlphabet::fromInt(const ALPHACHAR id) const
 {
 	// category and categoryName are for debug purpose
 	int category(_mulFactor);
@@ -109,17 +109,17 @@ int mulAlphabet::convertFromBasedAlphaInt(int id) const
 	return (id + _size);
 }
 
-size_t mulAlphabet::fromChar(const string& str, const size_t pos) const
+ALPHACHAR mulAlphabet::fromChar(const string& str, const size_t pos) const
 {
 	size_t id = _baseAlphabet->fromChar(str,pos);
 	return (convertFromBasedAlphaInt(id));
 }
 
 
-vector<size_t> mulAlphabet::fromString(const string &str) const
+vector<ALPHACHAR> mulAlphabet::fromString(const string &str) const
 {
-	vector<size_t> result = _baseAlphabet->fromString(str);
-	vector<size_t>::iterator itr = result.begin();
+	vector<ALPHACHAR> result = _baseAlphabet->fromString(str);
+	vector<ALPHACHAR>::iterator itr = result.begin();
 	for (; itr != result.end(); ++itr)
 		*itr = convertFromBasedAlphaInt(*itr);
 	
@@ -139,7 +139,7 @@ int mulAlphabet::convertToBasedAlphaInt(int id) const
 
 
 
-size_t mulAlphabet::relations(const size_t charInSeq, const size_t charToCheck) const
+ALPHACHAR mulAlphabet::relations(const ALPHACHAR charInSeq, const ALPHACHAR charToCheck) const
 { 
 	size_t baseAlphabetSize = _baseAlphabet->size();
 	size_t categoryInSeq(_mulFactor);
@@ -164,7 +164,7 @@ size_t mulAlphabet::relations(const size_t charInSeq, const size_t charToCheck) 
 }
 
 
-int mulAlphabet::compareCategories(int charA, int charB) const
+int mulAlphabet::compareCategories(ALPHACHAR charA, ALPHACHAR charB) const
 {
 	// TO DO should combine code by calling mulAlphabet::rateShiftType mulAlphabet::compareCategories
 	
@@ -185,7 +185,7 @@ int mulAlphabet::compareCategories(int charA, int charB) const
 }
 
 
- mulAlphabet::rateShiftType mulAlphabet::compareCategories(int charA, int charB, int baseAlphabetSize, int multiplicationFactor) 
+ mulAlphabet::rateShiftType mulAlphabet::compareCategories(ALPHACHAR charA, ALPHACHAR charB, int baseAlphabetSize, int multiplicationFactor) 
 {
 	int categoryA(multiplicationFactor);
 	if (categoryA>=0)

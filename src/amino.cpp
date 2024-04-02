@@ -17,7 +17,7 @@ amino::amino() {
 	}
 }
 
-size_t amino::fromChar(const char s) const{
+ALPHACHAR amino::fromChar(const char s) const{
 	switch (s) {
 	case 'A' : case'a' : return 0 ; break;
 	case 'R' : case'r' : return 1 ; break;
@@ -57,14 +57,14 @@ size_t amino::fromChar(const char s) const{
 	return -99; // never suppose to be here.	
 }// end of function
 
-vector<size_t> amino::fromString(const string &str) const {
-	vector<size_t> vec;
+vector<ALPHACHAR> amino::fromString(const string &str) const {
+	vector<ALPHACHAR> vec;
 	for (size_t i=0;i<str.size();i++)
 	  vec.push_back(fromChar(str[i]));
 	return vec;
 }
 
-string amino::fromInt(const size_t in_id) const{
+string amino::fromInt(const ALPHACHAR in_id) const{
   char res = 0;
 	switch (in_id) {
 		case 0 : res = 'A'  ; break;
@@ -104,18 +104,18 @@ string amino::fromInt(const size_t in_id) const{
 	return vRes;
 }// end of function
 
-size_t amino::relations(const size_t charInSeq, const size_t charToCheck) const{
+ALPHACHAR amino::relations(const ALPHACHAR charInSeq, const ALPHACHAR charToCheck) const{
 	if (charInSeq == gap()) {
 		errorMsg::reportError("gaps in the sequences. Either change gaps to ? or remove gap positions");
 	}
 	return _relation[charInSeq][charToCheck];
 }
 
-size_t amino::fromChar(const string& str, const size_t pos) const{
+ALPHACHAR amino::fromChar(const string& str, const size_t pos) const{
 	return fromChar(str[pos]);
 }
 
-int amino::relations_internal(const int charInSeq, const int charToCheck) const{
+ALPHACHAR amino::relations_internal(const ALPHACHAR charInSeq, const ALPHACHAR charToCheck) const{
 	if (charInSeq == charToCheck) return 1;
 	else if (charInSeq == fromChar('?')) return 1;
 	else if ((charInSeq == fromChar('B')) && 
@@ -128,8 +128,8 @@ int amino::relations_internal(const int charInSeq, const int charToCheck) const{
 }
 
 
-vector<int> aminoUtility::codonOf(const int a, codon &cod){
-	vector<int> codons;
+vector<ALPHACHAR> aminoUtility::codonOf(const ALPHACHAR a, codon &cod){
+	vector<ALPHACHAR> codons;
 	amino amin;
 	string strAmino=amin.fromInt(a);
 	map <string, string> genCode=cod.geneticCode();

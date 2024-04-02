@@ -58,23 +58,23 @@ public:
 	virtual alphabet* clone() const { return new codon(*this); }
 	void readMatrixFromFile(const string& matrixFileName);
 	const map <string,string> & geneticCode()const {return _geneticCode;}
-	size_t unknown() const  {return 64;}
-	size_t gap() const  {return 65;}
-	size_t size() const {return _alphabetSize;} // 3 stop codon excluded
+	ALPHACHAR unknown() const  {return 64;}
+	ALPHACHAR gap() const  {return 65;}
+	ALPHACHAR size() const {return _alphabetSize;} // 3 stop codon excluded
 	size_t stringSize() const {return 3;} // 3 letter code.
-	vector<size_t> fromString(const string& str) const;
+	vector<ALPHACHAR> fromString(const string& str) const;
 	bool isStopCodon(const size_t in_id) const;
 	bool isStopCodon(const string& str) const {return isStopCodon(fromChar(str));}; 
 	bool isInitiationCodon(const int in_id) const; 
 	bool isInitiationCodon(const string& str) const {return isInitiationCodon(fromChar(str));}; 
-	size_t fromChar(const string& s, const size_t pos=0) const;
-	string fromInt(const size_t in_id) const;
+	ALPHACHAR fromChar(const string& s, const size_t pos=0) const;
+	string fromInt(const ALPHACHAR in_id) const;
 	// "specific" here is not unknown, nor ambiguity, nor gap (for example, for nucleotides it will true for A,C,G, or T).
-	bool isSpecific(const size_t id) const {return (id>=0 && id < size());}
+	bool isSpecific(const ALPHACHAR id) const {return (id>=0 && id < size());}
 
 
 	
-	size_t relations(const size_t charInSeq, const size_t charToCheck) const{
+	ALPHACHAR relations(const ALPHACHAR charInSeq, const ALPHACHAR charToCheck) const{
 		if (charInSeq ==gap()) {
 			errorMsg::reportError("gaps in the sequences. Either change gaps to ? or remove gap positions");
 		}

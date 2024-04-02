@@ -11,6 +11,9 @@ public:
 	virtual const MDOUBLE freq(const size_t i) const = 0;
 	virtual const MDOUBLE dPij_dt(const int i, const int j, const MDOUBLE t) const =0;
 	virtual const MDOUBLE d2Pij_dt2(const int i, const int j, const MDOUBLE t) const =0;
+
+	virtual const MDOUBLE Qij(const int i, const int j) const = 0;
+
 	virtual replacementModel* clone() const = 0;
 	virtual ~replacementModel()=0;
 	virtual	const size_t alphabetSize() const =0;

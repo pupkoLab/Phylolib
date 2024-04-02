@@ -36,7 +36,7 @@ public:
 	}
 
 
-	int getRandomChar(const int originLetter) const {
+	ALPHACHAR getRandomChar(const ALPHACHAR originLetter) const {
 		return _D[originLetter]->drawSample() - 1;
 	}
 	VVdouble _V; // let, let
@@ -54,7 +54,7 @@ public:
 		return _V[nodeId].getPij(let1,let2);
 	}
 
-	int getRandomChar(const int nodeId, const int originLetter) const {
+	ALPHACHAR getRandomChar(const int nodeId, const ALPHACHAR originLetter) const {
 		return _V[nodeId].getRandomChar(originLetter);
 	}
 
@@ -85,7 +85,7 @@ public:
 		}
 	}
 
-	int getRandomChar(const int rateCategor,const int nodeId, const int originLetter) const {
+	ALPHACHAR getRandomChar(const int rateCategor,const int nodeId, const ALPHACHAR originLetter) const {
 		return _V[rateCategor].getRandomChar(nodeId,originLetter);
 	}
 	computePijHom& operator[] (int i) {return _V[i];}

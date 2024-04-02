@@ -44,8 +44,12 @@ public:
 		TreeNode* getSon (int i) {return _sons[i];}
         std::vector<TreeNode*> getSons () {return _sons;}
         void orderSonsByHeight () {
+			if (this->isLeaf()) return;
 			auto comp = [](TreeNode* x, TreeNode* y){ return x->getHeight() < y->getHeight(); };
 			std::sort(_sons.begin(), _sons.end(), comp);
+			for (auto &son: _sons) {
+				son->orderSonsByHeight();
+			}
 		}
 
 

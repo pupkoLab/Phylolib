@@ -11,6 +11,9 @@ public:
 
 	explicit trivialAccelerator(const replacementModel* pb): _pb(pb->clone()) {};
 	trivialAccelerator(const trivialAccelerator& other):_pb(NULL){if (other._pb != NULL) _pb = other._pb->clone();}
+
+	const MDOUBLE Qij(const int i,const int j) const {return _pb->Qij(i,j);}
+
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const {return _pb->Pij_t(i,j,d);}
 	const MDOUBLE dPij_dt(const int i,const int j, const MDOUBLE d) const{return _pb->dPij_dt(i,j,d);};
 	const MDOUBLE d2Pij_dt2(const int i,const int j, const MDOUBLE d) const{return _pb->d2Pij_dt2(i,j,d);};

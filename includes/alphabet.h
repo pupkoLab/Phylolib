@@ -3,6 +3,9 @@
 
 #include <string>
 #include <vector>
+
+#include "definitions.h"
+
 using namespace std;
 
 // Explanations added by Tal Pupko on 1/6/2017.
@@ -63,30 +66,29 @@ using namespace std;
 
 
 
-
 class alphabet {
 public:
-	virtual size_t size() const = 0;
+	virtual ALPHACHAR size() const = 0;
 	//size of the alphabet. e.g. the size of the amino alphabet is 20.
-	virtual vector<size_t> fromString(const string& str) const = 0;
+	virtual vector<ALPHACHAR> fromString(const string& str) const = 0;
 	//fromString- get a sequence string and transform it to an integer vector 
 	//(performed in the relevant subclass)
-	virtual string fromInt(const size_t in_id) const = 0;
+	virtual string fromInt(const ALPHACHAR in_id) const = 0;
 	//fromString- get an integer vector that represents a sequence
 	//and transform it to a sequence string 
 	//(performed in the relevant subclass)
-	virtual size_t gap() const = 0;
+	virtual ALPHACHAR gap() const = 0;
 	//The function gap() returns the integer associated with the gap character(in amino it will return -1).
-	virtual size_t unknown() const = 0;
+	virtual ALPHACHAR unknown() const = 0;
 	virtual size_t stringSize() const = 0;
 	//The function stringSize() returns the number of characters that are encoded to each integer. 
 	// For codons it would be 3, and for nucleotides it will be 1.
-	virtual size_t fromChar(const string& seq, const size_t pos) const = 0;
+	virtual ALPHACHAR fromChar(const string& seq, const size_t pos) const = 0;
 	//The function "from char(string, pos) gets as input a string (e.g., AAAGGG) and a position (e.g., 0) and returns the 
 	//integer that is associated with that position. So in case of codons, it will read 3 chars, and in case of nucleotides only 1 char
-	virtual bool isSpecific(const size_t size_t) const = 0; // "specific" here is not unknown, nor ambiguity, nor gap (for example, for nucleotides it will true for A,C,G, or T).
+	virtual bool isSpecific(const ALPHACHAR x) const = 0; // "specific" here is not unknown, nor ambiguity, nor gap (for example, for nucleotides it will true for A,C,G, or T).
 
-	virtual size_t relations(const size_t charInSeq, const size_t charToCheck) const =0;
+	virtual ALPHACHAR relations(const ALPHACHAR charInSeq, const ALPHACHAR charToCheck) const =0;
 	
 	
 	

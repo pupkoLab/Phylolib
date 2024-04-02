@@ -20,22 +20,22 @@ public:
     virtual alphabet* clone() const { return new mulAlphabet(*this); }
 	mulAlphabet& operator=(const mulAlphabet &other);
 
-	size_t unknown() const ;
-	size_t gap() const;
+	ALPHACHAR unknown() const ;
+	ALPHACHAR gap() const;
 	
-	size_t size() const {return _size;}
+	ALPHACHAR size() const {return _size;}
 	size_t stringSize() const ;
-	bool isSpecific(const size_t id) const ;
+	bool isSpecific(const ALPHACHAR id) const ;
 
-	size_t fromChar(const string& str, const size_t pos) const;
-	vector<size_t> fromString(const string& str) const;
+	ALPHACHAR fromChar(const string& str, const size_t pos) const;
+	vector<ALPHACHAR> fromString(const string& str) const;
 
-	string fromInt(const size_t id) const;
+	string fromInt(const ALPHACHAR id) const;
 
-	size_t relations(const size_t charInSeq, const size_t charToCheck) const;
-	int compareCategories(int charA, int charB) const;
+	ALPHACHAR relations(const ALPHACHAR charInSeq, const ALPHACHAR charToCheck) const;
+	int compareCategories(ALPHACHAR charA, ALPHACHAR charB) const;
 	enum rateShiftType {noRateShift=0, acceleration, deceleration};
-	static rateShiftType compareCategories(int charA, int charB, int baseAlphabetSize, int multiplicationFactor) ;
+	static rateShiftType compareCategories(ALPHACHAR charA, ALPHACHAR charB, int baseAlphabetSize, int multiplicationFactor) ;
 	const alphabet* getBaseAlphabet() const {return _baseAlphabet;}
 	
 public:

@@ -19,6 +19,9 @@ public:
 	MDOUBLE getTrTv() const {return _TrTv;}
 	MDOUBLE getTheta() const {return _theta;}
 
+	const MDOUBLE Qij(const int i,const int j) const {} //implement;
+
+
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const;
 	const MDOUBLE dPij_dt(const int i,const int j, const MDOUBLE d) const;
 	const MDOUBLE freq(const size_t i) const {return _freq[i];};

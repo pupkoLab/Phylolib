@@ -41,6 +41,8 @@ public:
 	const MDOUBLE err_allow_for_pijt_function; //1e-4
 	virtual replacementModel* clone() const { return new pupAll(*this); }
 
+	const MDOUBLE Qij(const int i,const int j) const { return _Q[i][j] ;}
+
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE t) const;
 	const MDOUBLE dPij_dt(const int i,const int j, const MDOUBLE t) const;
 	const MDOUBLE d2Pij_dt2(const int i,const int j, const MDOUBLE t) const;
@@ -63,6 +65,7 @@ private:
 	VVdouble _rightEigen;
 	Vdouble _eigenVector;
 	Vdouble _freq;
+	VVdouble _Q;
 };
 
 #endif

@@ -10,6 +10,9 @@ class pijAccelerator {
 public:
 	virtual pijAccelerator* clone() const = 0;
 	virtual ~pijAccelerator() = 0;
+
+	virtual const MDOUBLE Qij(const int i, const int j) const = 0;
+
 	virtual const MDOUBLE Pij_t(const int i, const int j, const MDOUBLE t) const = 0;
 	virtual const MDOUBLE freq(const size_t i) const = 0;	// P(i)
 	virtual const MDOUBLE dPij_dt(const int i, const int j, const MDOUBLE t) const =0;
