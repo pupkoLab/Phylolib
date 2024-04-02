@@ -3,6 +3,9 @@
 
 #include <string>
 #include <vector>
+
+#include "definitions.h"
+
 using namespace std;
 
 // Explanations added by Tal Pupko on 1/6/2017.
@@ -62,7 +65,6 @@ using namespace std;
 // will return 0, because R is either A or G, but not C (which is encoded as 1).
 
 
-#define ALPHACHAR unsigned char 
 
 class alphabet {
 public:

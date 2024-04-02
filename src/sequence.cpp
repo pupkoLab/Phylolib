@@ -171,7 +171,7 @@ void sequence::removePositions(const vector<int> & posToRemoveVec)
 		errorMsg::reportError("the input vector must be same size as sequence length. in sequence::removePositions");
 	for (size_t k=0; k < posToRemoveVec.size(); ++k) {
 		if (posToRemoveVec[k] == 1) 
-			_vec[k] = -1000;
+			_vec[k] = -1000; // check with Tal
 	}
 	vector<ALPHACHAR>::iterator vec_iter;
 	vec_iter =  remove_if(_vec.begin(),_vec.end(),particip());

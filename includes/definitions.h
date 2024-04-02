@@ -33,6 +33,9 @@ typedef vector<string> Vstring;
 	const MDOUBLE VERYSMALL = -VERYBIG;
 	const MDOUBLE EPSILON = numeric_limits<MDOUBLE>::epsilon(); //epsilon() returns the difference between 1 and the smallest value greater than 1 that is representable for the data type.
 
+// Definition of character type holder for alphabet
+
+typedef unsigned char ALPHACHAR;
 
 #endif
   
