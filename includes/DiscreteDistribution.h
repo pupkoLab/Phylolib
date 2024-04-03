@@ -15,12 +15,10 @@ class DiscreteDistribution
 private:
     std::vector<double> probabilities_;
     std::vector<int> alias_;
-    std::stack<std::pair<int, double>> small_;
-    std::stack<std::pair<int, double>> large_;
-    std::random_device rd_;
-    std::mt19937_64 rng_;
-    std::uniform_real_distribution<double> biased_coin_;
-    std::uniform_int_distribution<int> fair_die_;
+    static std::random_device rd_;
+    static std::mt19937_64 rng_;
+    static std::uniform_real_distribution<double> biased_coin_;
+    static std::uniform_int_distribution<int> fair_die_;
 
 
 public:
@@ -29,6 +27,9 @@ public:
         fair_die_ = std::uniform_int_distribution<int>(0, n-1);
         biased_coin_ = std::uniform_real_distribution<double>(0,1);
         rng_ = std::mt19937_64(rd_());
+
+        std::stack<std::pair<int, double>> small_;
+        std::stack<std::pair<int, double>> large_;
 
         probabilities_.resize(n);
         alias_.resize(n);
@@ -88,7 +89,7 @@ public:
         std::cout << "\n";
     }
 
-    void setSeed(int seed) {
+    static void setSeed(int seed) {
         rng_ = std::mt19937_64(seed);
     }
 

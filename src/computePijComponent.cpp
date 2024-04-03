@@ -107,6 +107,7 @@ void computePijHomSpec::fillDistributions() {
 		// std::cout << "\n";
 		_D[i] = std::make_shared<DiscreteDistribution>(_V[i]);
 	}
+	_V.clear();
 }
 
 void computePijHom::fillPij(const tree& et, const stochasticProcess& sp, int derivationOrder, bool isReversible) {

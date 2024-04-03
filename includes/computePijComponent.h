@@ -28,20 +28,12 @@ public:
 		return _V[let1][let2];
 	}
 
-	void setSeed(int seed) {
-		_seed = seed;
-		for (auto dist: _D) {
-			dist->setSeed(seed);
-		}
-	}
-
 
 	ALPHACHAR getRandomChar(const ALPHACHAR originLetter) const {
 		return _D[originLetter]->drawSample() - 1;
 	}
 	VVdouble _V; // let, let
 	std::vector<std::shared_ptr<DiscreteDistribution>> _D;
-	int _seed;
 };
 
 class computePijHom {//all nodes, no rate variation
@@ -58,12 +50,6 @@ public:
 		return _V[nodeId].getRandomChar(originLetter);
 	}
 
-	void setSeed(int seed) {
-		for(auto v: _V) {
-			v.setSeed(seed);
-		}
-	}
-
 	vector<computePijHomSpec> _V; // let, let
 };
 
@@ -77,12 +63,6 @@ public:
 
 	MDOUBLE getPij(const int rateCategor,const int nodeId,const int let1,const int let2)const{
 		return _V[rateCategor].getPij(nodeId,let1,let2);
-	}
-
-	void setSeed(int seed) {
-		for(auto v: _V) {
-			v.setSeed(seed);
-		}
 	}
 
 	ALPHACHAR getRandomChar(const int rateCategor,const int nodeId, const ALPHACHAR originLetter) const {

@@ -19,7 +19,7 @@ public:
 	MDOUBLE getTrTv() const {return _TrTv;}
 	MDOUBLE getTheta() const {return _theta;}
 
-	const MDOUBLE Qij(const int i,const int j) const {} //implement;
+	const MDOUBLE Qij(const int i,const int j) const {return 1;} //implement;
 
 
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const;
