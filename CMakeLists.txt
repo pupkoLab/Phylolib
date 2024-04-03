@@ -47,6 +47,7 @@ add_library(Phylolib STATIC
     src/ConversionUtils.cpp
     src/countTableComponent.cpp
     src/datMatrixHolder.cpp
+    src/DiscreteDistribution.cpp
     src/distanceTable.cpp
     src/distribution.cpp
     src/doubleRep.cpp

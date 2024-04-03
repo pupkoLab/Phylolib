@@ -25,7 +25,7 @@ public:
 	void changeTrTv(const MDOUBLE In_TrTv);
 	MDOUBLE getTrTv() const;
 
-	const MDOUBLE Qij(const int i,const int j) const;
+	const MDOUBLE Qij(const int i,const int j) const {return 1;} // implement;
 
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const;
 	const MDOUBLE dPij_dt(const int i,const int j, const MDOUBLE d) const;

@@ -24,7 +24,7 @@ hky::hky(vector<MDOUBLE> inProbs, const MDOUBLE TrTv) : _freq(inProbs)
 }
 
 void hky::initParams(MDOUBLE TrTv) // init _a, _b, _c, and _y by using _freq and TrTv
-{
+{	//Felsenstein chapter 13 page 202
 	MDOUBLE In_k = TrTv*2; // k is defined as alpha / beta.
 	// In k2p Tr/Tv = alpha / 2*beta.
 
@@ -48,9 +48,7 @@ MDOUBLE hky::getTrTv() const {
 }
 
 
-const MDOUBLE hky::Qij(const int i,const int j) const {
-	// implement
-}
+
 
 
 const MDOUBLE hky::Pij_t(const int i, const int j, const MDOUBLE t) const {
