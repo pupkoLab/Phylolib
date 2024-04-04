@@ -18,11 +18,11 @@ private:
     static std::random_device rd_;
     static std::mt19937_64 rng_;
     static std::uniform_real_distribution<double> biased_coin_;
-    static std::uniform_int_distribution<int> fair_die_;
+    std::uniform_int_distribution<int> fair_die_;
 
 
 public:
-    DiscreteDistribution(std::vector<double> probabilities) {
+    DiscreteDistribution(const std::vector<double> &probabilities) {
         int n = probabilities.size();
         fair_die_ = std::uniform_int_distribution<int>(0, n-1);
         biased_coin_ = std::uniform_real_distribution<double>(0,1);
@@ -102,24 +102,7 @@ public:
         return prob_alias_table;
     }
 
-    // DiscreteDistribution(const DiscreteDistribution& d) :  
-    //     probabilities_(d.probabilities_), 
-    //     alias_(d.alias_),
-    //     small_(d.small_),
-    //     large_(d.large_),
-    //     rng_(d.rng_),
-    //     biased_coin_(d.biased_coin_),
-    //     fair_die_(d.fair_die_) {};
-
-    // DiscreteDistribution& operator=(DiscreteDistribution& other) {
-    //     std::swap(probabilities_, other.probabilities_);
-    //     std::swap(alias_, other.alias_);
-    //     std::swap(small_, other.small_);
-    //     std::swap(large_, other.large_);
-    //     std::swap(rng_, other.rng_);
-    //     std::swap(biased_coin_, other.biased_coin_);
-    //     std::swap(fair_die_, other.fair_die_);
-    //     return *this;
-    // };     // copy assignment operator
-
+    double getProb(int i) {
+        return probabilities_[i];
+    }
 };

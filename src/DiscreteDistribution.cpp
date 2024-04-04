@@ -4,4 +4,3 @@
 std::random_device DiscreteDistribution::rd_;
 std::mt19937_64 DiscreteDistribution::rng_;
 std::uniform_real_distribution<double> DiscreteDistribution::biased_coin_;
-std::uniform_int_distribution<int> DiscreteDistribution::fair_die_;

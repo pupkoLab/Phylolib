@@ -20,7 +20,7 @@ int main() {
     auto pij = std::make_unique<chebyshevAccelerator>(repModel.get());
 
     // auto _alph = new amino();
-    gammaDistribution dist(2.0, 1000);
+    gammaDistribution dist(2.0, 100);
 
     auto sp = std::make_shared<stochasticProcess>(&dist, pij.get());
 
@@ -31,11 +31,15 @@ int main() {
 
     DiscreteDistribution::setSeed(39);
 
-    for (size_t i = 0; i < 100; i++)
+    for (size_t i = 0; i < 1000; i++)
     {
-        std::cout << int(cpijGam.getRandomChar(10, 42, 3)) << " ";
+        std::cout << int(cpijGam.getRandomChar(10, 10, 3)) << " ";
     }
     std::cout << "\n";
-    std::cin.get();
 
+    // for (size_t i = 0; i < sp->alphabetSize(); i++)
+    // {
+    //     cpijGam.getPij(10, 10, 3, i);
+    // }
+    
 }
