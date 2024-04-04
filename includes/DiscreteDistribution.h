@@ -25,8 +25,6 @@ public:
     DiscreteDistribution(const std::vector<double> &probabilities) {
         int n = probabilities.size();
         fair_die_ = std::uniform_int_distribution<int>(0, n-1);
-        biased_coin_ = std::uniform_real_distribution<double>(0,1);
-        rng_ = std::mt19937_64(rd_());
 
         std::stack<std::pair<int, double>> small_;
         std::stack<std::pair<int, double>> large_;
