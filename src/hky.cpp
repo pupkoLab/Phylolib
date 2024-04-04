@@ -34,6 +34,24 @@ void hky::initParams(MDOUBLE TrTv) // init _a, _b, _c, and _y by using _freq and
 	//_a/_b = k;
 	_b = 1.0 / (_c*In_k+_y);
 	_a = _b*In_k;
+	
+	initQ();
+	
+}
+
+void hky::initQ() {
+	_Q.resize(alphabetSize(), std::vector<MDOUBLE>(alphabetSize(), 0.0));
+							_Q[0][1] = _freq[1]*_b; _Q[0][2] = _freq[2]*_a; _Q[0][3] = _freq[3]*_b;
+	_Q[1][0] = _freq[0]*_b;							_Q[1][2] = _freq[2]*_b; _Q[1][3] = _freq[3]*_a;
+	_Q[2][0] = _freq[0]*_a;	_Q[2][1] = _freq[1]*_b;							_Q[2][3] = _freq[3]*_b;
+	_Q[3][0] = _freq[0]*_b;	_Q[3][1] = _freq[1]*_a; _Q[3][2] = _freq[2]*_b;
+
+	_Q[0][0] = -(_Q[0][1] + _Q[0][2] + _Q[0][3]);
+	_Q[1][1] = -(_Q[1][0] + _Q[1][2] + _Q[1][3]);
+	_Q[2][2] = -(_Q[2][0] + _Q[2][1] + _Q[2][3]);
+	_Q[3][3] = -(_Q[3][0] + _Q[3][1] + _Q[3][2]);
+
+
 }
 
 void hky::changeTrTv(const MDOUBLE TrTv){
@@ -41,6 +59,7 @@ void hky::changeTrTv(const MDOUBLE TrTv){
 				  // In k2p Tr/Tv = alpha / 2*beta.
 	_b = 1.0 / (_c*In_k+_y);
 	_a = _b*In_k;
+	initQ();
 }
 
 MDOUBLE hky::getTrTv() const {
@@ -48,7 +67,10 @@ MDOUBLE hky::getTrTv() const {
 }
 
 
+const MDOUBLE hky::Qij(const int i, const int j) const {
+	return _Q[i][j];
 
+}
 
 
 const MDOUBLE hky::Pij_t(const int i, const int j, const MDOUBLE t) const {

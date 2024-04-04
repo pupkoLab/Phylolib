@@ -25,7 +25,8 @@ public:
 	void changeTrTv(const MDOUBLE In_TrTv);
 	MDOUBLE getTrTv() const;
 
-	const MDOUBLE Qij(const int i,const int j) const {return 1;} // implement;
+	void initQ();
+	const MDOUBLE Qij(const int i,const int j) const; // implement;
 
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const;
 	const MDOUBLE dPij_dt(const int i,const int j, const MDOUBLE d) const;
@@ -43,6 +44,7 @@ private:
 	MDOUBLE _b; //
 
 	MDOUBLE _c,_y; // relationship between probA, probC, prob G, prob T.
+	VVdouble _Q;
 };
 
 #endif

@@ -20,7 +20,7 @@ public:
 
 	const size_t alphabetSize() const {return _freq.size();}
 
-	const MDOUBLE Qij(const int i,const int j) const {return 1;}// implement
+	const MDOUBLE Qij(const int i,const int j) const {return dPij_dt(i,j,0);}// implement
 
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const {
 		return _q2pt.Pij_t(i,j,d);
