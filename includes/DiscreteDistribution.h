@@ -22,7 +22,7 @@ private:
 
 
 public:
-    DiscreteDistribution(const std::vector<double> &probabilities) {
+    DiscreteDistribution(const std::vector<double> &probabilities, double normalizingFactor=1.0) {
         int n = probabilities.size();
         fair_die_ = std::uniform_int_distribution<int>(0, n-1);
 
@@ -34,7 +34,7 @@ public:
 
 
         for(int i = 0; i < n; i++) {
-            double scaled_prob = n*probabilities[i];
+            double scaled_prob = n*probabilities[i]*normalizingFactor;
             std::pair<int, double> current_prob(i, scaled_prob);
             if (current_prob.second < 1) {
                 small_.push(current_prob);

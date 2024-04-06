@@ -8,7 +8,7 @@
 
 int main() {
 
-    tree test_tree = tree("/home/elyalab/Dev/failed_syncs/Sailfish-backend/tests/trees/normalbranches_nLeaves100.treefile");
+    tree test_tree = tree("../../../tests/trees/normalbranches_nLeaves100.treefile");
 
     std::cout << sizeof(double) << "\n";
     std::cout << sizeof(int) << "\n";
@@ -20,7 +20,7 @@ int main() {
     auto pij = std::make_unique<chebyshevAccelerator>(repModel.get());
 
     // auto _alph = new amino();
-    gammaDistribution dist(2.0, 100);
+    gammaDistribution dist(2.0, 2);
 
     auto sp = std::make_shared<stochasticProcess>(&dist, pij.get());
 
@@ -33,7 +33,7 @@ int main() {
 
     for (size_t i = 0; i < 1000; i++)
     {
-        std::cout << int(cpijGam.getRandomChar(10, 10, 3)) << " ";
+        std::cout << int(cpijGam.getRandomChar(2, 10, 3)) << " ";
     }
     std::cout << "\n";
 
