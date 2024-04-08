@@ -25,7 +25,7 @@ public:
 	explicit aaJC(){};
 
 	const MDOUBLE Qij(const int i,const int j) const {
-		return (i==j) ? aaDef::om_odAl : aaDef::odAl; // check with Tal...
+		return (i==j) ? (-1.0) : (1.0 / 19.0);
 	};
 
 

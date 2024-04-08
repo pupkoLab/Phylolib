@@ -23,7 +23,7 @@ public:
 	explicit nucJC(){};
 
 	const MDOUBLE Qij(const int i,const int j) const {
-		return (i==j) ? nucDef::om_odAl : nucDef::odAl; // check with Tal...
+		return Q(i, j); // check with Tal...
 	};
 
 	const MDOUBLE Pij_t(const int i,const int j, const MDOUBLE d) const {
