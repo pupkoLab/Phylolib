@@ -25,7 +25,7 @@ public:
 	explicit aaJC(){};
 
 	const MDOUBLE Qij(const int i,const int j) const {
-		return (i==j) ? (-1.0) : (1.0 / 19.0);
+		return (i==j) ? (-0.05) : (0.002631579);
 	};
 
 

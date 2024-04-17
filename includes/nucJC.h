@@ -43,7 +43,7 @@ public:
 	}
 	
     const MDOUBLE Q(const int i, const int j) const {
-		return ((i == j) ? ( - 1.0) : (1.0 / 3.0));
+		return ((i == j) ? ( - 0.25) : (0.083333333));
 	}
 
 
