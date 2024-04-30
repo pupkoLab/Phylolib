@@ -40,9 +40,9 @@ public:
 		size_t getNumberOfSons() const {return _sons.size();}
         size_t getNumberLeaves() const {return _leaves;}
         size_t getHeight() const {return _height;}
-
 		TreeNode* getSon (int i) {return _sons[i];}
-        std::vector<TreeNode*> getSons () {return _sons;}
+		TreeNode* getSon (int i) const {return _sons[i];}
+        std::vector<TreeNode*> getSons () const {return _sons;}
         void orderSonsByHeight () {
 			if (this->isLeaf()) return;
 			auto comp = [](TreeNode* x, TreeNode* y){ return x->getHeight() < y->getHeight(); };
