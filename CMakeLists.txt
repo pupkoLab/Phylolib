@@ -13,6 +13,10 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra")
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
+if(WIN32)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY MultiThreaded)
+endif(WIN32)
+
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 ############################################################
 # Create a library
