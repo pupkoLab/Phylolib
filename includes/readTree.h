@@ -9,7 +9,7 @@ using namespace std;
 
 #define REMARK ';'
 #define MAX_LENGTH_OF_NAME 20
-size_t MAX_FILE_SIZE = std::numeric_limits<size_t>::max();
+#define MAX_FILE_SIZE std::numeric_limits<size_t>::max()
 #define FATHER 0
 #define LEFT 1
 #define RIGHT 2
