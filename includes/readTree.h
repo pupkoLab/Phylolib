@@ -4,11 +4,12 @@
 #define ___READ_TREE
 #include "definitions.h"
 #include <iostream>
+#include <limits>
 using namespace std;
 
 #define REMARK ';'
 #define MAX_LENGTH_OF_NAME 20
-#define MAX_FILE_SIZE INT64_MAX
+size_t MAX_FILE_SIZE = std::numeric_limits<std::int32_t>::max();
 #define FATHER 0
 #define LEFT 1
 #define RIGHT 2
