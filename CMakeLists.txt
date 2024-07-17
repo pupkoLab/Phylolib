@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(Phylolib VERSION 24.2)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-set (CMAKE_CXX_STANDARD 17)
+set (CMAKE_CXX_STANDARD 14)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -13,9 +13,6 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra")
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
-if(WIN32)
-    set(CMAKE_MSVC_RUNTIME_LIBRARY MultiThreaded)
-endif(WIN32)
 
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 ############################################################
