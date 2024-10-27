@@ -124,6 +124,7 @@ public:
 //*******************************************************************************
 
 	nodeP getRoot() const {return _root;};
+	bool isRooted() const {return _root->getNumberOfSons() == 2;}
 	inline size_t getLeavesNum() const;
     void setNumLeavesUnderAllNode(nodeP startNode);
 	void setHeightUnderAllNode(nodeP starNode);
@@ -191,6 +192,7 @@ public:
 	//recursiveBuildTree: copy the information from other_nodePTR to a new node, and set the father to father_nodePTR
 	//used by treeUtil
 	nodeP recursiveBuildTree(tree::nodeP father_nodePTR,const tree::nodeP other_nodePTR);
+	nodeP recursiveBuildTreeUp(tree::nodeP father_nodePTR,const tree::nodeP other_nodePTR, const size_t idToExclude);
 
 //*******************************************************************************
 // Input-Output

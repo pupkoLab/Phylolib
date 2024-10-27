@@ -1162,6 +1162,29 @@ tree::nodeP tree::recursiveBuildTree(tree::nodeP father_nodePTR, const tree::nod
 }
 
 
+tree::nodeP tree::recursiveBuildTreeUp(tree::nodeP father_nodePTR, 
+									   const tree::nodeP other_nodePTR, 
+									   const size_t idToExclude) {
+
+	size_t childId = other_nodePTR->isRoot() ? other_nodePTR->getNumberLeaves() + 1 : other_nodePTR->id();
+	tree::nodeP childPTR = createNode(father_nodePTR, childId);
+	childPTR->setName(other_nodePTR->name());
+	childPTR->setComment(other_nodePTR->getComment());
+	childPTR->setDisToFather(other_nodePTR->dis2father());
+    childPTR->_leaves = other_nodePTR->_leaves - 1;
+
+	if (!other_nodePTR->isRoot()) {
+		recursiveBuildTreeUp(childPTR, other_nodePTR->father(), other_nodePTR->id());
+	}
+	for (size_t k = 0 ; k < other_nodePTR->getNumberOfSons() ; ++k) {
+		nodeP childK = other_nodePTR->getSon(k);
+		if (childK->id() == idToExclude) continue;
+		recursiveBuildTree(childPTR, childK);
+	}
+	return childPTR;
+}
+
+
 
 void tree::updateNumberofNodesANDleaves() {
 	vector<nodeP> vec;
