@@ -193,7 +193,6 @@ public:
 	//used by treeUtil
 	nodeP recursiveBuildTree(tree::nodeP father_nodePTR,const tree::nodeP other_nodePTR);
 	nodeP recursiveBuildTreeUp(tree::nodeP father_nodePTR,const tree::nodeP other_nodePTR, const size_t idToExclude);
-	nodeP recursiveBuildTreeDown(tree::nodeP father_nodePTR,const tree::nodeP other_nodePTR);
 
 //*******************************************************************************
 // Input-Output
