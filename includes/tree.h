@@ -159,8 +159,6 @@ public:
 	//rootAt: sets newRoot as the root. updates the iterator order lists.
 	void rootAt(const nodeP newRoot);   
 	void rootToUnrootedTree();
-	tree::nodeP rootTreeOnBranch(tree &newTree, const size_t branchNum, const MDOUBLE splitPoint);
-	bool compareWithOtherTree(const nodeP& otherTreeRoot);
 	void multipleAllBranchesByFactor(const MDOUBLE InFactor);
 	void create_names_to_internal_nodes();
 	void makeSureAllBranchesArePositive();
